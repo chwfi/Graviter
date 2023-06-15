@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     private float _gravityDir;
 
+    Collider2D coll = null;
+
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
@@ -59,28 +61,6 @@ public class PlayerController : MonoBehaviour
             {
                 _rigid.AddForce(Vector3.up * _jumpPower * _gravityDir, ForceMode2D.Impulse);
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Lever"))
-        {
-            StopCoroutine(OnLever(collision));
-            StartCoroutine(OnLever(collision));
-        }
-    }
-
-    IEnumerator OnLever(Collider2D collision)
-    {
-        while (true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                collision.GetComponent<GravityLever>().OnLever();
-                yield return null;
-            }
-            yield return null;
         }
     }
 }
