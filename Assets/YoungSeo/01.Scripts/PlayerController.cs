@@ -40,8 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        _rigid.velocity = new Vector2(Mathf.Clamp(_rigid.velocity.x, -2f, 2f),
-            _rigid.velocity.y);
+        _rigid.velocity = new Vector2(Mathf.Clamp(_rigid.velocity.x, -2f, 2f), _rigid.velocity.y);
     }
 
     private void PlayerMove()
@@ -61,6 +60,27 @@ public class PlayerController : MonoBehaviour
                 _rigid.AddForce(Vector3.up * _jumpPower * _gravityDir, ForceMode2D.Impulse);
             }
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Lever"))
+        {
+            StopCoroutine(OnLever(collision));
+            StartCoroutine(OnLever(collision));
+        }
+    }
+
+    IEnumerator OnLever(Collider2D collision)
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                collision.GetComponent<GravityLever>().OnLever();
+                yield return null;
+            }
+            yield return null;
+        }
     }
 }
