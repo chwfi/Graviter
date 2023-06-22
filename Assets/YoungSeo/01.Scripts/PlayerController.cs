@@ -12,13 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _jumpPower = 5f;
 
-    [SerializeField]
-    private LayerMask Ground;
-    private bool _isGround;
+    //[SerializeField]
+    //private LayerMask Ground;
+    //private bool _isGround;
 
     private float _gravityDir;
-
-    Collider2D coll = null;
 
     private void Awake()
     {
@@ -28,11 +26,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         PlayerJump();
-
-        //테스트 코드
-        float gravityY = Input.GetAxisRaw("Vertical");
-        if (gravityY == 0) return;
-        _rigid.gravityScale = gravityY * -1;
     }
 
     private void FixedUpdate()
@@ -54,13 +47,13 @@ public class PlayerController : MonoBehaviour
     private void PlayerJump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _gravityDir = _rigid.gravityScale / Mathf.Abs(_rigid.gravityScale);
-            _isGround = Physics2D.Raycast(transform.position, Vector3.down, 0.6f * _gravityDir, Ground);
-            if (_isGround)
-            {
-                _rigid.AddForce(Vector3.up * _jumpPower * _gravityDir, ForceMode2D.Impulse);
-            }
-        }
+        //{
+        //    _gravityDir = _rigid.gravityScale / Mathf.Abs(_rigid.gravityScale);
+        //    _isGround = Physics2D.Raycast(transform.position, Vector3.down, 0.6f * _gravityDir, Ground);
+        //    if (_isGround)
+        //    {
+                _rigid.AddForce(Vector3.up * _jumpPower, ForceMode2D.Impulse);
+        //    }
+        //}
     }
 }
