@@ -47,13 +47,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerJump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    _gravityDir = _rigid.gravityScale / Mathf.Abs(_rigid.gravityScale);
-        //    _isGround = Physics2D.Raycast(transform.position, Vector3.down, 0.6f * _gravityDir, Ground);
-        //    if (_isGround)
-        //    {
-                _rigid.AddForce(Vector3.up * _jumpPower, ForceMode2D.Impulse);
-        //    }
-        //}
+        {
+            _rigid.AddForce(Vector3.up * _jumpPower, ForceMode2D.Impulse);
+        }
     }
 }
