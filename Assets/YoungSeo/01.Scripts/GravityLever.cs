@@ -9,6 +9,10 @@ public class GravityLever : MonoBehaviour
 
     Rigidbody2D[] _rigids;
 
+    [SerializeField] private float _distance;
+
+    [SerializeField] private float _tutorialDistance;
+
     private void Awake()
     {
         _rigids = _obstacles.transform.GetComponentsInChildren<Rigidbody2D>();
@@ -22,11 +26,28 @@ public class GravityLever : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Player"))
+        CheckDistance();
+    }
+
+    private void CheckDistance()
+    {
+        if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _distance)
         {
-            OnLever();
+            UIManager.Instance.FadeText.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
+            UIManager.Instance.FadeText.FadeIn();
+
+            if (Input.GetKeyDown(KeyCode.F)) OnLever();
+        }
+        else
+        {
+            UIManager.Instance.FadeText.FadeOut();
+        }
+
+        if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
+        {
+            UIManager.Instance.TutorialText.FadeInAndOut();
         }
     }
 }
