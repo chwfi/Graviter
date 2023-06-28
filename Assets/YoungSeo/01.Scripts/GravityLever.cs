@@ -13,6 +13,8 @@ public class GravityLever : MonoBehaviour
 
     [SerializeField] private float _tutorialDistance;
 
+    bool _canFade = true;
+
     private void Awake()
     {
         _rigids = _obstacles.transform.GetComponentsInChildren<Rigidbody2D>();
@@ -45,9 +47,13 @@ public class GravityLever : MonoBehaviour
             UIManager.Instance.FadeText.FadeOut();
         }
 
-        if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
+        if (_canFade)
         {
-            UIManager.Instance.TutorialText.FadeInAndOut();
+            if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
+            {
+                UIManager.Instance.TutorialText.FadeInAndOut();
+                _canFade = false;
+            }
         }
     }
 }

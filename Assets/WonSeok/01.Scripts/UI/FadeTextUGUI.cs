@@ -10,6 +10,8 @@ public class FadeTextUGUI : MonoBehaviour
 
     [SerializeField] private float _fadeSpeed = 0.5f;
 
+    public bool CanFade = false;
+
     private void Start()
     {
         _text = GetComponent<TextMeshProUGUI>();
@@ -17,12 +19,12 @@ public class FadeTextUGUI : MonoBehaviour
 
     public void FadeInAndOut()
     {
-        if (_text.alpha <= 0)
+        Sequence seq = DOTween.Sequence();
+        seq.Append(_text.DOFade(1, 1f));
+        seq.AppendInterval(2f);
+        seq.Append(_text.DOFade(0, 1f)).OnComplete(() =>
         {
-            _text.DOFade(1, _fadeSpeed).OnComplete(() =>
-            {
-                _text.DOFade(0, _fadeSpeed);
-            });
-        }
+            _text.gameObject.SetActive(false);
+        });
     }
 }
