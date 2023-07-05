@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,27 +13,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _jumpPower = 5f;
 
-    [SerializeField]
-    private LayerMask Ground;
-    private bool _isGround;
+    private Transform _arrowTrm;
+    private SpriteRenderer _arrowRenderer;
 
-    private float _gravityDir;
+    private Vector2 _clearPos;
 
-    Collider2D coll = null;
+    //[SerializeField]
+    //private LayerMask Ground;
+    //private bool _isGround;
 
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        _clearPos = GameObject.Find("Clear").transform.position;
+        _arrowTrm = transform.Find("Arrow");
+        _arrowRenderer = _arrowTrm.Find("ArrowVisual").GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(FindClearPosition());
     }
 
     private void Update()
     {
         PlayerJump();
-
-        //테스트 코드
-        float gravityY = Input.GetAxisRaw("Vertical");
-        if (gravityY == 0) return;
-        _rigid.gravityScale = gravityY * -1;
     }
 
     private void FixedUpdate()
@@ -55,12 +60,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _gravityDir = _rigid.gravityScale / Mathf.Abs(_rigid.gravityScale);
-            _isGround = Physics2D.Raycast(transform.position, Vector3.down, 0.6f * _gravityDir, Ground);
-            if (_isGround)
+            _rigid.AddForce(Vector3.up * _jumpPower, ForceMode2D.Impulse);
+        }
+    }
+
+    IEnumerator FindClearPosition()
+    {
+        while (true)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                _rigid.AddForce(Vector3.up * _jumpPower * _gravityDir, ForceMode2D.Impulse);
+                _arrowRenderer.color = Color.red;
+                float z = Mathf.Atan2(_clearPos.y - _arrowTrm.position.y, _clearPos.x - _arrowTrm.position.x) * Mathf.Rad2Deg - 90;
+                _arrowTrm.rotation = Quaternion.Euler(0, 0, z);
+                _arrowRenderer.DOFade(0, 1f).SetEase(Ease.InCubic);
+                yield return new WaitForSeconds(1f);
             }
+            yield return null;
         }
     }
 }
