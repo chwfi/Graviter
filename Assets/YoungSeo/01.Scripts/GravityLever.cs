@@ -37,21 +37,21 @@ public class GravityLever : MonoBehaviour
     {
         if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _distance)
         {
-            UIManager.Instance.FadeText.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
-            UIManager.Instance.FadeText.FadeIn();
+            //UIManager.Instance.FadeText.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
+            //UIManager.Instance.FadeText.FadeIn();
 
             if (Input.GetKeyDown(KeyCode.F)) OnLever();
         }
         else
         {
-            UIManager.Instance.FadeText.FadeOut();
+            //UIManager.Instance.FadeText.FadeOut();
         }
 
         if (_canFade)
         {
             if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
             {
-                UIManager.Instance.TutorialText.FadeInAndOut();
+                //UIManager.Instance.TutorialText.FadeInAndOut();
                 _canFade = false;
             }
         }
