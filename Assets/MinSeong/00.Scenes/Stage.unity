@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7564475876018467044, guid: 402694af930eae8499da04b8e023f982, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7564475876018467044, guid: 402694af930eae8499da04b8e023f982, type: 3}
       propertyPath: m_LocalScale.y
@@ -1322,9 +1322,13 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 570484842088354593, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570484842088354593, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}
       propertyPath: _obstacles
       value: 
-      objectReference: {fileID: 1813640211}
+      objectReference: {fileID: 1065842224}
     - target: {fileID: 570484842088354597, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}
       propertyPath: m_Name
       value: Lever_3
@@ -5101,6 +5105,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a129bd063dd10741b1fa7f47bf9bf76, type: 3}
+--- !u!1 &2001713980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+  m_PrefabInstance: {fileID: 873474330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2001713981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001713980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be618dc66cac5d245b01bc08fe854fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles: {fileID: 1098696618}
 --- !u!1 &2062312936
 GameObject:
   m_ObjectHideFlags: 0

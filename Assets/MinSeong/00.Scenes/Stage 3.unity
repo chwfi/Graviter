@@ -242,6 +242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 7564475876018467043, guid: 402694af930eae8499da04b8e023f982, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7564475876018467044, guid: 402694af930eae8499da04b8e023f982, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -439,7 +443,8 @@ PrefabInstance:
       propertyPath: _obstacles
       value: 
       objectReference: {fileID: 683899262}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &655197842 stripped
 Transform:
@@ -456,6 +461,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7564475876018467044, guid: 402694af930eae8499da04b8e023f982, type: 3}
   m_PrefabInstance: {fileID: 249659870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685121321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+  m_PrefabInstance: {fileID: 655197841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &685121325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685121321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be618dc66cac5d245b01bc08fe854fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles: {fileID: 683899262}
 --- !u!1 &886151282
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +810,7 @@ GameObject:
   - component: {fileID: 1704728490}
   - component: {fileID: 1704728489}
   - component: {fileID: 1704728491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
