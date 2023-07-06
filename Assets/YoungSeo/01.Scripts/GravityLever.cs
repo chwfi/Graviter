@@ -51,7 +51,7 @@ public class GravityLever : MonoBehaviour
         {
             if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
             {
-                UIManager.Instance.TutorialText.FadeInAndOut();
+                //UIManager.Instance.TutorialText.FadeInAndOut();
                 _canFade = false;
             }
         }

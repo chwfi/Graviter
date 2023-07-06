@@ -115,3 +115,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 0}
+  _distance: 1
+  _tutorialDistance: 0
