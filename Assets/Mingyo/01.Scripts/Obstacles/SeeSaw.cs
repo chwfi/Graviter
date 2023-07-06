@@ -7,22 +7,26 @@ public class SeeSaw : MonoBehaviour
 {
     [SerializeField]
     float rotationSpeed = 1f;
+    [SerializeField]
+    private float distacnce;
 
     private bool objectOnSeesaw = false;
 
-    void Update()
-    {
-        CollionCheck();
+    [SerializeField]
+    private LayerMask _layerMask;
 
-        if (objectOnSeesaw)
-        {
-            float rotation = Input.GetAxis("Horizontal") * rotationSpeed; //¹Ù²Ù°í
-            transform.Rotate(Vector3.forward, rotation);
-        }
+    private void Update()
+    {
+        CheckObject();
+
     }
 
-    private void CollionCheck()
+    private void CheckObject()
     {
-        if(Vector3.Distance(transform.position)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up * 0.3f, distacnce, _layerMask);
+        if (hit.collider != null)
+        {
+            objectOnSeesaw = true;
+        }
     }
 }
