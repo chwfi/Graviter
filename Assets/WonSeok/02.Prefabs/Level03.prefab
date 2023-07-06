@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1365061338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365061339}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1365061339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365061338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.08, y: -4.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6886894143985752842}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6886894142657395153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6886894143446317194}
   - component: {fileID: 6886894143446317195}
+  - component: {fileID: 982403467}
+  - component: {fileID: 982403466}
   m_Layer: 0
   m_Name: Destination
   m_TagString: Untagged
@@ -1154,6 +1187,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &982403467
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886894143446317188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133333}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
+--- !u!114 &982403466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6886894143446317188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf0151c113b8c9418daf58cabdb222e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thisStagePrefab: {fileID: 6886894143985752843}
+  _nextStage: {fileID: 6886894143985752843}
+  _spawnPoint: {fileID: 1365061339}
+  _fadePanel: {fileID: 0}
 --- !u!1 &6886894143617480960
 GameObject:
   m_ObjectHideFlags: 0
@@ -4469,6 +4534,7 @@ Transform:
   - {fileID: 6886894143446317194}
   - {fileID: 6886894143116508460}
   - {fileID: 6886894142854947798}
+  - {fileID: 1365061339}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6002,9 +6068,9 @@ CompositeCollider2D:
       - X: -150000000
         Y: 43750000
       - X: -150000000
-        Y: 40000000
+        Y: 50000000
       - X: -130000000
-        Y: 40000000
+        Y: 50000000
       - X: -130000000
         Y: 31250000
       - X: -125000000
@@ -6053,9 +6119,9 @@ CompositeCollider2D:
       - {x: -15.999979, y: 4.1249948}
       - {x: -15.499993, y: 4.0000024}
       - {x: -15.124995, y: 4.1250095}
-      - {x: -15, y: 4.374828}
-      - {x: -14.999971, y: 4}
-      - {x: -13, y: 3.9999704}
+      - {x: -15, y: 4.375006}
+      - {x: -14.999971, y: 5}
+      - {x: -13, y: 4.9999704}
       - {x: -12.999979, y: 3.1249948}
       - {x: -12.499993, y: 3.0000024}
       - {x: -12.124995, y: 3.1250095}
