@@ -17,8 +17,7 @@ public class FadeTextMesh : MonoBehaviour
 
     public void FadeIn()
     {
-        if (_text.alpha <= 0)
-            _text.DOFade(1, _fadeSpeed);
+        _text.DOFade(1, _fadeSpeed);
     }
 
     public void FadeOut()
