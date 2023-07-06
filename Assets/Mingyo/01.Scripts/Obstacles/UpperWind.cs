@@ -10,8 +10,6 @@ public class UpperWind : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
-    [SerializeField]
-    private float jumpPower;
 
 
     void Update()
@@ -22,9 +20,9 @@ public class UpperWind : MonoBehaviour
         {
             foreach (RaycastHit2D hit in hits)
             {
-                Vector2 jumpVec = Vector2.up * jumpPower;
-                hit.collider.gameObject.transform.position =
-                    Vector2.Lerp(hit.collider.gameObject.transform.position, new Vector2(hit.collider.gameObject.transform.position.x, transform.position.y + jumpPower), Time.deltaTime);
+                Vector2 jumpVec = Vector2.up * rayDistance;
+                
+                hit.rigidbody.AddForce(jumpVec);
                 Debug.Log(hit.collider.gameObject.name);
             }
         }
