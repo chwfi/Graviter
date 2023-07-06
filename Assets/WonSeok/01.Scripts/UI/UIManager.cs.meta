@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/YoungSeo/01.Scripts/Lava.cs.meta
+guid: 566114d440cb63641b7bbd0ac18f8855
+========
 guid: 83badccc4a290b94692081ed25a34169
+>>>>>>>> origin/wonseok:Assets/WonSeok/01.Scripts/UI/UIManager.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
