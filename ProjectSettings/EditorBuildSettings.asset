@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MinSeong/00.Scenes/test.unity
     guid: 8b1ae0728e1a1aa43abd2ae9f803d7e2
+  - enabled: 1
+    path: Assets/YeahBin/00.Scenes/Stage_8.unity
+    guid: 029693fccd1d12749a8260c4edaa9fdf
+  - enabled: 1
+    path: Assets/YeahBin/00.Scenes/Stage_9.unity
+    guid: 43f813bf36b271d4090d375c4cfe0d2f
   m_configObjects: {}

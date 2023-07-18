@@ -4,7 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
+  - Floor
+  - Button
+  - RightDoor
+  - LeftDoor
+  - Button2
+  - Poison
+  - EndDoor
+  - EndDoor2
+  - Poison2
+  - Poison3
+  - BallDoorLeft
+  - BallDoorRight
+  - BallButton1
+  - BallButton2
   layers:
   - Default
   - TransparentFX
