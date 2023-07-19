@@ -6,6 +6,7 @@ public class Playeryj : MonoBehaviour
 {
     [SerializeField] GameObject spawnpoint;
     [SerializeField] GameObject Camera;
+    [SerializeField] GameObject[] laser;
     public float moveSpeed = 5f; // 이동 속도
     bool isflip;
     private Rigidbody2D rigid;
@@ -70,6 +71,11 @@ public class Playeryj : MonoBehaviour
             Debug.Log("스테이지 클리어");
             //스테이지 클리어
         }
+        if (collision.gameObject.CompareTag("Laser"))
+        {
+            collision.gameObject.SetActive(false);
+            rigid.gravityScale *= -1;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,6 +86,18 @@ public class Playeryj : MonoBehaviour
         {
             Debug.Log("뭐");
             spawnpoint.transform.position = transform.position;
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (rigid.gravityScale < 0)
+                rigid.gravityScale *= -1;
+            transform.position = spawnpoint.transform.position;
+            Camera.transform.position = spawnpoint.transform.position;
+            for (int i=0; i < laser.Length; i++)
+            {
+                Debug.Log("뭐야");
+                laser[i].SetActive(true);
+            }
         }
     }
 }

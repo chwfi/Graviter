@@ -5,11 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Obstacle
-  - Flip
-  - Enemy
   - Star
-  - Spawnpoint
+  - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX
