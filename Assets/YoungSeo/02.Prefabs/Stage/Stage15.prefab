@@ -3775,6 +3775,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2533067384970864764}
     m_Modifications:
+    - target: {fileID: 3468261206125841127, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+      propertyPath: _obstacles
+      value: 
+      objectReference: {fileID: 2533067384542250855}
     - target: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
       propertyPath: m_Name
       value: PressurePlate
@@ -3831,7 +3835,8 @@ PrefabInstance:
       propertyPath: _obstacles
       value: 
       objectReference: {fileID: 2533067384542250855}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &854981327204673613 stripped
 Transform:
@@ -4051,6 +4056,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2533067384970864764}
     m_Modifications:
+    - target: {fileID: 3468261206125841127, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+      propertyPath: _obstacles
+      value: 
+      objectReference: {fileID: 2533067384542250855}
     - target: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
       propertyPath: m_Name
       value: PressurePlate
@@ -4103,7 +4112,8 @@ PrefabInstance:
       propertyPath: _obstacles
       value: 
       objectReference: {fileID: 2533067384542250855}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &2268500811695169591 stripped
 Transform:
@@ -4183,6 +4193,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2533067384970864764}
     m_Modifications:
+    - target: {fileID: 3468261206125841127, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+      propertyPath: _obstacles
+      value: 
+      objectReference: {fileID: 2533067384542250855}
     - target: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
       propertyPath: m_Name
       value: PressurePlate
@@ -4239,7 +4253,8 @@ PrefabInstance:
       propertyPath: _obstacles
       value: 
       objectReference: {fileID: 2533067384542250855}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &2268500811864252894 stripped
 Transform:
@@ -4319,6 +4334,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2533067384970864764}
     m_Modifications:
+    - target: {fileID: 3468261206125841127, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+      propertyPath: _obstacles
+      value: 
+      objectReference: {fileID: 2533067384542250855}
     - target: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
       propertyPath: m_Name
       value: PressurePlate
@@ -4371,7 +4390,8 @@ PrefabInstance:
       propertyPath: _obstacles
       value: 
       objectReference: {fileID: 2533067384542250855}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &2268500812023781364 stripped
 Transform:
