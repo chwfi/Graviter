@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTrm: {fileID: 1812807213}
-  _poolingListSO: {fileID: 0}
+  _poolingListSO: {fileID: 11400000, guid: a4333acee3c44c04380d9cf605427fcc, type: 2}
 --- !u!4 &242519837
 Transform:
   m_ObjectHideFlags: 0
@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_FollowOffset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2717196733452680819, guid: d28cc557f9d4f0e41808ed2f422dbd06, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9b2afc6fcc2b6d045a774a1b7f5fed19, type: 2}
     - target: {fileID: 6154256068894862449, guid: d28cc557f9d4f0e41808ed2f422dbd06, type: 3}
       propertyPath: m_RootOrder
       value: 1
