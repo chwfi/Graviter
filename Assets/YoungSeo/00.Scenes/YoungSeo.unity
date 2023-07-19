@@ -580,7 +580,7 @@ MonoBehaviour:
   groundCheck: {fileID: 365121481229352140}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   speed: 4
   jumpingPower: 8
 --- !u!70 &365121480091606724
@@ -612,7 +612,7 @@ GameObject:
   - component: {fileID: 365121480091606726}
   - component: {fileID: 365121480091606727}
   - component: {fileID: 365121480091606724}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 365121481229352140}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
