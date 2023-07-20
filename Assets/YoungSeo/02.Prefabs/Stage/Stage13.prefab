@@ -996,7 +996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
   _distance: 1
-  _tutorialDistance: 0
+  _tutorialDistance: 3
 --- !u!1 &7090557006621632998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
   _distance: 1
-  _tutorialDistance: 0
+  _tutorialDistance: 3
 --- !u!1 &7090557006903271010
 GameObject:
   m_ObjectHideFlags: 0
