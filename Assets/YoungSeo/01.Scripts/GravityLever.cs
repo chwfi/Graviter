@@ -13,14 +13,14 @@ public class GravityLever : MonoBehaviour
 
     [SerializeField] private float _tutorialDistance;
 
-    bool _canFade = true;
+    private bool _isPlayer = false;
 
     private void Awake()
     {
         _rigids = _obstacles.transform.GetComponentsInChildren<Rigidbody2D>();
     }
 
-    public void OnLever()
+    private void OnLever()
     {
         foreach (Rigidbody2D obstacles in _rigids)
         {
@@ -37,22 +37,28 @@ public class GravityLever : MonoBehaviour
     {
         if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _distance)
         {
-            //UIManager.Instance.FadeText.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 0.7f);
-            //UIManager.Instance.FadeText.FadeIn();
+            _isPlayer = true;
+            YSUIManager.Instance.FadeText.gameObject.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+            YSUIManager.Instance.FadeText.FadeIn();
 
-            if (Input.GetKeyDown(KeyCode.F)) OnLever();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                OnLever();
+                YSUIManager.Instance.FadeText.GetLever();
+            }
         }
-        else
+        else if (_isPlayer)
         {
-            //UIManager.Instance.FadeText.FadeOut();
+            _isPlayer = false;
+            YSUIManager.Instance.FadeText.FadeOut();
         }
 
-        if (_canFade)
+        if (YSUIManager.Instance.tutorial)
         {
             if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
             {
-                //UIManager.Instance.TutorialText.FadeInAndOut();
-                _canFade = false;
+                YSUIManager.Instance.TutorialText.FadeInAndOut();
+                YSUIManager.Instance.tutorial = false;
             }
         }
     }
