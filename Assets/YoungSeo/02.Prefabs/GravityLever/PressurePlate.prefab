@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 0}
+  _tutorialDistance: 3
 --- !u!61 &7732134929818270109
 BoxCollider2D:
   m_ObjectHideFlags: 0
