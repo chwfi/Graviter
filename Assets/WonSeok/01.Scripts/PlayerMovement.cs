@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
 
     private Rigidbody2D rb;
+    private Animator animator;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
+        animator.SetBool("isMove", Mathf.Abs(rb.velocity.x) > 3f);
         Flip();
     }
 
