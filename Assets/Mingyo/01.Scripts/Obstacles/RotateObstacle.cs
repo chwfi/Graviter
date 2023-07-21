@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class RotateObstacle : MonoBehaviour
 {
+    [SerializeField]
+    private LayerMask _playerLayerMask;
+
     Transform centerPoint;
 
     [SerializeField]
@@ -14,6 +17,8 @@ public class RotateObstacle : MonoBehaviour
     public float speed = 1f;
     [SerializeField]
     private float angle = 0f;
+    [SerializeField]
+    private float rayDistance = 1f;
 
     private void Awake()
     {
@@ -23,6 +28,16 @@ public class RotateObstacle : MonoBehaviour
     private void Update()
     {
         Rotate();
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, Vector2.up, rayDistance, _playerLayerMask);
+
+        if (hits != null)
+        {
+            foreach (RaycastHit2D hit in hits)
+            {
+                hit.transform.SetParent(transform);
+            }
+        }
     }
 
     private void Rotate()

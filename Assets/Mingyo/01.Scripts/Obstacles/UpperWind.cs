@@ -14,7 +14,7 @@ public class UpperWind : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.up, rayDistance, _layerMask);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + Vector3.up, Vector2.up, rayDistance, _layerMask);
 
         if (hits != null)
         {
