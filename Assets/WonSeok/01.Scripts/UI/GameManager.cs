@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [HideInInspector]
     public Transform PlayerTrm;
+    [HideInInspector]
+    public Transform SpawnTrm;
 
     [SerializeField]
     PoolingListSO _poolingListSO;
@@ -31,5 +34,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerTrm = GameObject.FindWithTag("Player").transform;
+        SpawnTrm = GameObject.Find("SpawnPoint").transform;
     }
 }

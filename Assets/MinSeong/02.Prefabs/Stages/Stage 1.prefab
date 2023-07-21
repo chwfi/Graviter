@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1821318509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821318510}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821318510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821318509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.71, y: -4.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3178803533237731619}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3178803532604019423
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +123,7 @@ Transform:
   - {fileID: 4964948400025596273}
   - {fileID: 4964948399425255637}
   - {fileID: 3178803533953300400}
+  - {fileID: 1821318510}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4351,21 +4383,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 570484842088354597, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}
   m_PrefabInstance: {fileID: 3178803533201908071}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3178803534153582943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168181218573972034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632ffcebaf16eeb41befd99da19c2a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obstacles: {fileID: 4964948399590206648}
-  _distance: 0.5
-  _tutorialDistance: 0
 --- !u!114 &3178803534153582912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4379,6 +4396,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399425255634}
+  _distance: 0.5
+  _tutorialDistance: 0
+--- !u!114 &3178803534153582943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168181218573972034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ffcebaf16eeb41befd99da19c2a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles: {fileID: 4964948399590206648}
   _distance: 0.5
   _tutorialDistance: 0
 --- !u!1001 &3178803533242036298

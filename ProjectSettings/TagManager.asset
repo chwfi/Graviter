@@ -8,6 +8,8 @@ TagManager:
   - Star
   - Laser
   - Enemy
+  - Lever
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Obstacle
+  - Ground
   - 
   - 
   - 
