@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 17645109}
   Camera: {fileID: 169791254}
+  laser: []
   moveSpeed: 7
 --- !u!251 &8405595
 PlatformEffector2D:
