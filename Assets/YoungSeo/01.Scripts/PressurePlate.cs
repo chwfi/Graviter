@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PressurePlate : MonoBehaviour
     Rigidbody2D _pressingObj;
 
     Rigidbody2D[] _rigids;
+    
+    [SerializeField] private float _tutorialDistance;
 
     private void Awake()
     {
@@ -46,6 +49,23 @@ public class PressurePlate : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 obstacle.gravityScale *= -1;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        CheckDistance();
+    }
+
+    private void CheckDistance()
+    {
+        if (YSUIManager.Instance.plateTutorial)
+        {
+            if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
+            {
+                YSUIManager.Instance.TutorialText.FadeInAndOut("Plate");
+                YSUIManager.Instance.plateTutorial = false;
             }
         }
     }

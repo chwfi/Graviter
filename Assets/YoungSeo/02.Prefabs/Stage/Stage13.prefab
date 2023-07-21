@@ -307,6 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
+  _tutorialDistance: 3
 --- !u!61 &7090557005991066957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1096,6 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
+  _tutorialDistance: 3
 --- !u!61 &7090557006621633016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7680,6 +7682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
+  _tutorialDistance: 3
 --- !u!61 &7090557007178401087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8576,6 +8579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
+  _tutorialDistance: 3
 --- !u!61 &7586719106623187934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8701,6 +8705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 7090557006012099514}
+  _tutorialDistance: 3
 --- !u!61 &8235084841301787344
 BoxCollider2D:
   m_ObjectHideFlags: 0

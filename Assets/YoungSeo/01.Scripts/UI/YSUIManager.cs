@@ -10,7 +10,8 @@ public class YSUIManager : MonoBehaviour
 
     public FadeTutorialText TutorialText;
 
-    public bool tutorial = true;
+    public bool leverTutorial = true;
+    public bool plateTutorial = true;
 
     private void Awake()
     {

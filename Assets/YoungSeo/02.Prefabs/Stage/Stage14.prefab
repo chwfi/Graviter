@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &6717433923485828621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &9202804360376846100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -349,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &5032305557809808947
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -834,6 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &3076450173567464780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7180,6 +7184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &3076450174547969309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7510,7 +7515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3076450174867946432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 11.9, z: 0}
+  m_LocalPosition: {x: 1.5, y: 12.05, z: 0}
   m_LocalScale: {x: 5, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8374,6 +8379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 3076450174946714149}
+  _tutorialDistance: 3
 --- !u!61 &3076450175198270812
 BoxCollider2D:
   m_ObjectHideFlags: 0

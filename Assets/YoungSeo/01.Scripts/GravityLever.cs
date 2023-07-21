@@ -53,12 +53,12 @@ public class GravityLever : MonoBehaviour
             YSUIManager.Instance.FadeText.FadeOut();
         }
 
-        if (YSUIManager.Instance.tutorial)
+        if (YSUIManager.Instance.leverTutorial)
         {
             if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
             {
-                YSUIManager.Instance.TutorialText.FadeInAndOut();
-                YSUIManager.Instance.tutorial = false;
+                YSUIManager.Instance.TutorialText.FadeInAndOut("Lever");
+                YSUIManager.Instance.leverTutorial = false;
             }
         }
     }
