@@ -2804,6 +2804,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8868243014726512323}
     m_Modifications:
+    - target: {fileID: 378851119924299841, guid: 5a129bd063dd10741b1fa7f47bf9bf76, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 378851119924299841, guid: 5a129bd063dd10741b1fa7f47bf9bf76, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 378851119924299842, guid: 5a129bd063dd10741b1fa7f47bf9bf76, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 378851119924299846, guid: 5a129bd063dd10741b1fa7f47bf9bf76, type: 3}
       propertyPath: m_Name
       value: Lava
