@@ -38,7 +38,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            settingPanel.DOAnchorPosY(defaultTrmY - 1080, 1f).SetEase(Ease.OutExpo).SetUpdate(true); //Off
+            settingPanel.DOAnchorPosY(defaultTrmY - 1110, 1f).SetEase(Ease.OutExpo).SetUpdate(true); //Off
 
         }
 
