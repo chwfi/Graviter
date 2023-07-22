@@ -17,6 +17,9 @@ public class UIController : MonoBehaviour, IAudioPlay
 
     private AudioSource _audioSource;
 
+    [SerializeField]
+    private AudioClip _onOffSource;
+
     private void Awake()
     {
         defaultTrmY = settingPanel.rect.height + 30;
@@ -34,6 +37,8 @@ public class UIController : MonoBehaviour, IAudioPlay
     public void SettingOnOff()
     {
         settingPanel.DOKill();
+
+        AudioPlay(_onOffSource);
 
         if(isOn)
         {

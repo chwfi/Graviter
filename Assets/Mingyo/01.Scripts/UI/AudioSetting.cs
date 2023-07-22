@@ -30,7 +30,7 @@ public class AudioSetting : MonoBehaviour
 
     public void SoundControll(Slider slider)
     {
-        _audioMixer.SetFloat(slider.name, Mathf.Log10(slider.value) * 20);
+        _audioMixer.SetFloat(slider.name, slider.value);
         PlayerPrefs.GetFloat(slider.name);
     }
 
@@ -39,7 +39,7 @@ public class AudioSetting : MonoBehaviour
         Toggle toggle = transform.Find("Toggles").transform.Find(name).GetComponent<Toggle>();
         Slider slider = transform.Find("Sliders").transform.Find(name).GetComponent<Slider>();
 
-        int value = toggle.isOn ? 1 : 0;
+        int value = toggle.isOn ? 0 : -40;
 
         slider.value = value;
         _audioMixer.SetFloat(name, value);
