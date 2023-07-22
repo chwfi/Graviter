@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour, IAudioPlay
 {
@@ -19,7 +20,6 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
 
-    
 
     private void Start()
     {
@@ -38,14 +38,20 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 
             AudioPlay(jumpClip);
         }
-        
+
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        if(Mathf.Abs(rb.velocity.x) > 3f && IsGrounded())
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("321");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (Mathf.Abs(rb.velocity.x) > 3f && IsGrounded())
         {
             animator.SetBool("isMove", true);
 
