@@ -24,6 +24,8 @@ public class UIController : MonoBehaviour, IAudioPlay
     {
         defaultTrmY = 1100;
         _audioSource = GetComponent<AudioSource>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()

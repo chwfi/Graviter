@@ -60,13 +60,17 @@ public class PressurePlate : MonoBehaviour
 
     private void CheckDistance()
     {
-        if (YSUIManager.Instance.plateTutorial)
+        if(GameObject.FindAnyObjectByType<YSUIManager>() != null)
         {
-            if (Vector2.Distance(GameManager.Instance.PlayerTrm().position, transform.position) <= _tutorialDistance)
+            if (YSUIManager.Instance.plateTutorial)
             {
-                //YSUIManager.Instance.TutorialText.FadeInAndOut("Plate");
-                YSUIManager.Instance.plateTutorial = false;
+                if (Vector2.Distance(GameManager.Instance.PlayerTrm().position, transform.position) <= _tutorialDistance)
+                {
+                    //YSUIManager.Instance.TutorialText.FadeInAndOut("Plate");
+                    YSUIManager.Instance.plateTutorial = false;
+                }
             }
         }
+        
     }
 }

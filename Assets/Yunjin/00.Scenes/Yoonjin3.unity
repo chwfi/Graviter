@@ -561,7 +561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050392435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.006022, y: -5.96159, z: -10}
+  m_LocalPosition: {x: -12.17586, y: -5.9604096, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -702,7 +702,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -796,3 +796,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e845dffa9c15343a539c37994f4738, type: 3}
+--- !u!1 &1361454266731108045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1361454267267325731, guid: 11e845dffa9c15343a539c37994f4738, type: 3}
+  m_PrefabInstance: {fileID: 1361454266731108044}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1361454266731108046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361454266731108045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba65baf370f82c4aa590bff48b16a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
