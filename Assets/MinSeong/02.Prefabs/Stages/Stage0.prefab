@@ -4426,7 +4426,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1550246636913831998}
   m_Layer: 0
+<<<<<<<< HEAD:Assets/MinSeong/02.Prefabs/Stages/Stage0.prefab
   m_Name: Stage0
+========
+  m_Name: Stage 2
+>>>>>>>> main:Assets/MinSeong/02.Prefabs/Stages/Stage 2.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
