@@ -5769,11 +5769,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 402694af930eae8499da04b8e023f982, type: 3}
---- !u!1 &8432174542155263970 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7564475876018467043, guid: 402694af930eae8499da04b8e023f982, type: 3}
-  m_PrefabInstance: {fileID: 2161570217637322497}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8432174542155263973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7564475876018467044, guid: 402694af930eae8499da04b8e023f982, type: 3}
@@ -6047,6 +6042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+    - {fileID: 3178803534338089581, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &8552757259157677088 stripped
 Transform:
@@ -6071,6 +6067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 8432174542165926063}
+  _tutorialDistance: 0
 --- !u!1001 &2161570218079997782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6128,6 +6125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+    - {fileID: 3178803534338089581, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!4 &8552757259163006666 stripped
 Transform:
@@ -6139,19 +6137,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_PrefabInstance: {fileID: 2161570218079997782}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2161570218016701115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552757259163006668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38ec431023a9944c90bd182a37173d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obstacles: {fileID: 8432174542155263970}
 --- !u!114 &2161570218016701119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6165,6 +6150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 8432174543057483651}
+  _tutorialDistance: 0
 --- !u!1001 &2161570218129600710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6262,7 +6248,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.45833334, y: 0.45833334, z: 0.45833334, w: 0.45833334}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
@@ -6581,7 +6567,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.45833334, y: 0.45833334, z: 0.45833334, w: 0.45833334}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}

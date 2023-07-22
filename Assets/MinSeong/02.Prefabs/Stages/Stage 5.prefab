@@ -3646,7 +3646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399660433930}
   _distance: 1
-  _tutorialDistance: 0
 --- !u!1001 &3178803532542259945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3964,7 +3963,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399425255634}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!1001 &3178803532765172377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4369,7 +4367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399425255634}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!114 &3178803534153582943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4384,7 +4381,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399590206648}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!1001 &3178803533242036298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4446,6 +4442,7 @@ PrefabInstance:
       objectReference: {fileID: 4964948400590527635}
     m_RemovedComponents:
     - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+    - {fileID: 3178803534338089581, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
 --- !u!1 &5139573886984178128 stripped
 GameObject:
@@ -4465,6 +4462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948400590527635}
+  _tutorialDistance: 0
 --- !u!4 &5139573886984178134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7732134929818270108, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
@@ -4637,7 +4635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399590206648}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!4 &3168181218304231815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 570484842088354598, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}
