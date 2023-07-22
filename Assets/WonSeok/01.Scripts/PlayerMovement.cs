@@ -1,12 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IAudioPlay
 {
     private float horizontal;
     private bool isFacingRight = true;
 
     private Rigidbody2D rb;
     private Animator animator;
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip jumpClip;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -15,10 +19,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
 
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -28,14 +35,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+
+            AudioPlay(jumpClip);
         }
+        
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        animator.SetBool("isMove", Mathf.Abs(rb.velocity.x) > 3f);
+        if(Mathf.Abs(rb.velocity.x) > 3f && IsGrounded())
+        {
+            animator.SetBool("isMove", true);
+
+        }
+        else
+        {
+            animator.SetBool("isMove", false);
+
+        }
         Flip();
     }
 
@@ -58,5 +77,12 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    public void AudioPlay(AudioClip clip)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = clip;
+        _audioSource.Play();
     }
 }
