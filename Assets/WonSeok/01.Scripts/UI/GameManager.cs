@@ -16,11 +16,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (Instance == null)
         {
-            Debug.LogError("Multiple GameManager is running! Check!");
+            Instance = this;
+            DontDestroyOnLoad(Instance);
         }
-        Instance = this;
+        else
+        {
+            Destroy(this);
+        }
         MakePool();
     }
 
