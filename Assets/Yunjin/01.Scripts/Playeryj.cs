@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playeryj : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class Playeryj : MonoBehaviour
             isflip = true;
             rigid.gravityScale *= -1;
             spriteRenderer.flipY = !spriteRenderer.flipY;
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -68,6 +74,7 @@ public class Playeryj : MonoBehaviour
         if (collision.gameObject.CompareTag("Star"))
         {
             Destroy(collision.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Debug.Log("스테이지 클리어");
             //스테이지 클리어
         }

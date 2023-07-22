@@ -10,6 +10,7 @@ public class ClearObj : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            Debug.Log("321");
             Clear();
         }
     }
@@ -18,6 +19,7 @@ public class ClearObj : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+        Debug.Log("312");
     }
 
     public void ReStart()

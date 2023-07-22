@@ -23,16 +23,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/MinSeong/00.Scenes/Stage 4.unity
     guid: 7723ad82fa5c8144aa129d75ca80a584
-  - enabled: 1
+  - enabled: 0
     path: Assets/MinSeong/00.Scenes/Stage 6.unity
     guid: 3d491d57cd03d294898f76e356af07f3
-  - enabled: 1
+  - enabled: 0
     path: Assets/MinSeong/00.Scenes/Stage.unity
     guid: 723e2d9a0df46994eb5b63d2e2bc2799
-  - enabled: 1
+  - enabled: 0
     path: Assets/YoungSeo/00.Scenes/YoungSeoScene1.unity
     guid: 4bfca5415eccf2e419326c4f2e32b69a
-  - enabled: 1
+  - enabled: 0
     path: Assets/YoungSeo/00.Scenes/YoungSeoScene2.unity
     guid: 8b67735c96ab60e4c8f0a7684d8aa290
   - enabled: 1
