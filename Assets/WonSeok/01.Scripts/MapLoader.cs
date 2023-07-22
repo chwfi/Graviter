@@ -28,7 +28,7 @@ public class MapLoader : MonoBehaviour
         Instantiate(MapPrefabs[num], SpawnTrm);
         if (num > 0)
         {
-            Destroy(GameObject.Find($"Stage{num - 1}(Clone)"));
+            Destroy(GameObject.Find($"Stage {num - 1}(Clone)"));
         }
         num++;
     }

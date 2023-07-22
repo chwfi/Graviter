@@ -1668,7 +1668,7 @@ GameObject:
   - component: {fileID: 2408940563131314538}
   - component: {fileID: 2408940563131314537}
   - component: {fileID: 2408940563131314536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tile
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -43831,7 +43831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7737257250285135329}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Stage 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

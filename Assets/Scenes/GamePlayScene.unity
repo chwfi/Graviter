@@ -800,6 +800,9 @@ MonoBehaviour:
   - {fileID: 3076450173261840944, guid: 4d28e65d7b8bec445b562e93c654dbba, type: 3}
   - {fileID: 2533067384466762968, guid: 60fdbc252b6ee444db7f59c217264c67, type: 3}
   - {fileID: 6886894143985752843, guid: 897fc7e29840a2642ab01ee0def19f32, type: 3}
+  - {fileID: 163308195382806749, guid: 06282d20b44ba9b49bd0d920fdeed33e, type: 3}
+  - {fileID: 4529230677246236929, guid: 11e845dffa9c15343a539c37994f4738, type: 3}
+  - {fileID: 5530960446239557266, guid: 31fdfeaf1bd875e4f87ca7d3187bf353, type: 3}
   SpawnTrm: {fileID: 523642737}
   InitTrm: {fileID: 2108078172}
   num: 0
