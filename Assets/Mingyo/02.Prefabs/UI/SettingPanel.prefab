@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 1997908067041011922}
   - component: {fileID: 1997908067041011923}
   m_Layer: 5
-  m_Name: MasterToggle
+  m_Name: Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,13 +1375,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1997908067014827421}
         m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
         m_MethodName: ToggleAudioVolume
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 1997908067041011923}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Master
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
@@ -1739,8 +1739,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1997908068181173357}
   - {fileID: 1997908068278817487}
+  - {fileID: 1997908068181173357}
   - {fileID: 1997908067003880701}
   m_Father: {fileID: 1997908067014827420}
   m_RootOrder: 0
@@ -2147,7 +2147,7 @@ GameObject:
   - component: {fileID: 1997908067899612481}
   - component: {fileID: 1997908067899612482}
   m_Layer: 5
-  m_Name: BGMToggle
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2224,13 +2224,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1997908067014827421}
         m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
         m_MethodName: ToggleAudioVolume
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 1997908067899612482}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BGM
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
@@ -2638,7 +2638,7 @@ RectTransform:
   - {fileID: 1997908067793832531}
   - {fileID: 1997908067448764725}
   m_Father: {fileID: 1997908067561849738}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2692,7 +2692,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2872,7 +2872,7 @@ GameObject:
   - component: {fileID: 1997908068272284618}
   - component: {fileID: 1997908068272284619}
   m_Layer: 5
-  m_Name: SFXToggle
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2949,13 +2949,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1997908067014827421}
         m_TargetAssemblyTypeName: AudioSetting, Assembly-CSharp
         m_MethodName: ToggleAudioVolume
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 1997908068272284619}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SFX
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
@@ -2993,7 +2993,7 @@ RectTransform:
   - {fileID: 1997908067959219989}
   - {fileID: 1997908068093407344}
   m_Father: {fileID: 1997908067561849738}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3047,7 +3047,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
