@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821318510}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: StartTrm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3178803533237731619}
   m_Layer: 0
-  m_Name: Stage 1
+  m_Name: Stage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3678,7 +3678,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399660433930}
   _distance: 1
-  _tutorialDistance: 0
 --- !u!1001 &3178803532542259945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3992,7 +3991,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399425255634}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!1001 &3178803532765172377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4397,7 +4395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399425255634}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!114 &3178803534153582943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4412,7 +4409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399590206648}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!1001 &3178803533242036298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4420,6 +4416,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3178803533237731619}
     m_Modifications:
+    - target: {fileID: 3178803534338089581, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+      propertyPath: _obstacles
+      value: 
+      objectReference: {fileID: 4964948400590527635}
     - target: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
       propertyPath: m_Name
       value: PressurePlate
@@ -4468,31 +4468,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
-      propertyPath: _obstacles
-      value: 
-      objectReference: {fileID: 4964948400590527635}
-    m_RemovedComponents:
-    - {fileID: 7732134929818270110, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
---- !u!1 &5139573886984178128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7732134929818270106, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
-  m_PrefabInstance: {fileID: 3178803533242036298}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3178803534338089581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5139573886984178128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38ec431023a9944c90bd182a37173d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obstacles: {fileID: 4964948400590527635}
 --- !u!4 &5139573886984178134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7732134929818270108, guid: a0623b53e69bb9e49ba01ff298b9b61d, type: 3}
@@ -4665,7 +4642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 4964948399590206648}
   _distance: 0.5
-  _tutorialDistance: 0
 --- !u!4 &3168181218304231815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 570484842088354598, guid: 1dc99ab5742aa454d854425f3a88aa5e, type: 3}

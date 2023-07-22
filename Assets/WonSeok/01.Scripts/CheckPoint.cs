@@ -6,17 +6,13 @@ using DG.Tweening;
 
 public class CheckPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject _thisStagePrefab;
-    [SerializeField] private GameObject _nextStage;
-
-    [SerializeField] private Transform _spawnPoint;
-
-    [SerializeField] private Image _fadePanel;
+    private Image _fadePanel;
 
     private Transform _player;
 
     private void Start()
     {
+        _fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
         _player = GameObject.Find("Player").transform;
     }
 
@@ -32,9 +28,8 @@ public class CheckPoint : MonoBehaviour
     {
         _fadePanel.DOFade(1, 1f).OnComplete(() =>
         {
-            _player.transform.position = _spawnPoint.position;
-            _thisStagePrefab.SetActive(false);
-            _nextStage.SetActive(true);
+            _player.transform.position = MapLoader.Instance.InitTrm.position;
+            MapLoader.Instance.LoadMap();
             _fadePanel.DOFade(0, 1f);
         });
     }
