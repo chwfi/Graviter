@@ -7,9 +7,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [HideInInspector]
-    public Transform PlayerTrm;
+    public Transform PlayerTrm()
+    {
+        return GameObject.FindWithTag("Player").transform;
+    }
     [HideInInspector]
-    public Transform SpawnTrm;
+    public Transform SpawnTrm()
+    {
+        return GameObject.Find("SpawnPoint").transform;
+    }
 
     [SerializeField]
     PoolingListSO _poolingListSO;
@@ -35,9 +41,4 @@ public class GameManager : MonoBehaviour
         _poolingListSO.List.ForEach(p => PoolManager.Instance.CreatePool(p.prefab, p.poolCount));
     }
 
-    private void Start()
-    {
-        PlayerTrm = GameObject.FindWithTag("Player").transform;
-        SpawnTrm = GameObject.Find("SpawnPoint").transform;
-    }
 }

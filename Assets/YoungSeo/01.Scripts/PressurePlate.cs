@@ -62,7 +62,7 @@ public class PressurePlate : MonoBehaviour
     {
         if (YSUIManager.Instance.plateTutorial)
         {
-            if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _tutorialDistance)
+            if (Vector2.Distance(GameManager.Instance.PlayerTrm().position, transform.position) <= _tutorialDistance)
             {
                 //YSUIManager.Instance.TutorialText.FadeInAndOut("Plate");
                 YSUIManager.Instance.plateTutorial = false;
