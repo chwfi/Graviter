@@ -42,6 +42,10 @@ public class UpperWind : MonoBehaviour, IAudioPlay
                 AudioPlay(_clip);
             }
         }
+        else
+        {
+            _audioSource?.Stop();
+        }
 
     }
 }
