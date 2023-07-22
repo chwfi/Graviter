@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.UIElements;
 using DG.Tweening.Core;
 
-public class UIController : MonoBehaviour
+public class UIController : MonoBehaviour, IAudioPlay
 {
     [SerializeField]
     private RectTransform settingPanel;
@@ -15,9 +15,12 @@ public class UIController : MonoBehaviour
 
     bool isOn = false;
 
+    private AudioSource _audioSource;
+
     private void Awake()
     {
         defaultTrmY = settingPanel.rect.height + 30;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -45,6 +48,10 @@ public class UIController : MonoBehaviour
         isOn = !isOn;
     }
 
-
-
+    public void AudioPlay(AudioClip clip)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = clip;
+        _audioSource.Play();
+    }
 }
