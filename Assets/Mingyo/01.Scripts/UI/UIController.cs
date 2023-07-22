@@ -43,6 +43,7 @@ public class UIController : MonoBehaviour, IAudioPlay
 
     public void SettingOnOff()
     {
+        Time.timeScale = isOn ? 1.0f : 0.0f;
         settingPanel.DOKill();
 
         AudioPlay(_onOffSource);
