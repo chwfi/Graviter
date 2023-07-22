@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetBool("isMove", Mathf.Abs(rb.velocity.x) > 3f);
-        print(Mathf.Abs(rb.velocity.x));
-
         Flip();
     }
 

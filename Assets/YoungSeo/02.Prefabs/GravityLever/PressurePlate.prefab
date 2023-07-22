@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7732134929818270108}
   - component: {fileID: 7732134929818270107}
-  - component: {fileID: 7732134929818270110}
   - component: {fileID: 7732134929818270109}
+  - component: {fileID: 3178803534338089581}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7732134929818270110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7732134929818270106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 345f29ebf1ab33e4bb5bc5e92e0c0114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obstacles: {fileID: 0}
 --- !u!61 &7732134929818270109
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3178803534338089581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732134929818270106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38ec431023a9944c90bd182a37173d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles: {fileID: 0}
+  _tutorialDistance: 0
