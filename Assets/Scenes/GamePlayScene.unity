@@ -793,6 +793,13 @@ MonoBehaviour:
   MapPrefabs:
   - {fileID: 1550246636913831999, guid: 642ad1abff4e0b94a925d0c9519aa520, type: 3}
   - {fileID: 3178803533237731618, guid: e8223b7491de9a54cbbd8512ff926f52, type: 3}
+  - {fileID: 381753119416994130, guid: 49b97290ece489045acd198d79a17d4b, type: 3}
+  - {fileID: 2161570219418256104, guid: bd1f1c46dcd215a4e92162ddf9274220, type: 3}
+  - {fileID: 8868243014726512322, guid: 63499e4c2c0c86c4f8b3374833c563af, type: 3}
+  - {fileID: 7090557007436476842, guid: c6a1b419f42527c44a8db5679adf4902, type: 3}
+  - {fileID: 3076450173261840944, guid: 4d28e65d7b8bec445b562e93c654dbba, type: 3}
+  - {fileID: 2533067384466762968, guid: 60fdbc252b6ee444db7f59c217264c67, type: 3}
+  - {fileID: 6886894143985752843, guid: 897fc7e29840a2642ab01ee0def19f32, type: 3}
   SpawnTrm: {fileID: 523642737}
   InitTrm: {fileID: 2108078172}
   num: 0
