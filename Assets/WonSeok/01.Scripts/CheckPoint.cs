@@ -13,7 +13,11 @@ public class CheckPoint : MonoBehaviour
     private void Start()
     {
         _fadePanel = GameObject.Find("FadePanel").GetComponent<Image>();
-        _player = GameObject.Find("Player").transform;
+        if(GameObject.Find("Player").transform != null)
+        {
+            _player = GameObject.Find("Player").transform;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +28,7 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
-    private void MoveToNextStage()
+    public void MoveToNextStage()
     {
         _fadePanel.DOFade(1, 1f).OnComplete(() =>
         {

@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.position = GameManager.Instance.SpawnTrm.position;
+            collision.gameObject.transform.position = GameManager.Instance.SpawnTrm().position;
         }
     }
 
@@ -16,7 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.position = GameManager.Instance.SpawnTrm.position;
+            collision.gameObject.transform.position = GameManager.Instance.SpawnTrm().position;
             if (this.gameObject.name == "thorn") Destroy(this.gameObject);
         }
     }

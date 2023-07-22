@@ -24,7 +24,7 @@ public class GravityLever : MonoBehaviour
 
     private void Update()
     {
-        if (Vector2.Distance(GameManager.Instance.PlayerTrm.position, transform.position) <= _distance)
+        if (Vector2.Distance(GameManager.Instance.PlayerTrm().position, transform.position) <= _distance)
         {
             if (Input.GetKeyDown(KeyCode.F)) OnLever();
         }
