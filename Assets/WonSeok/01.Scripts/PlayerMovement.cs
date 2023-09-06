@@ -7,24 +7,22 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     private float horizontal;
     private bool isFacingRight = true;
 
-    private Rigidbody2D rb;
-    private Animator animator;
+    private Rigidbody2D _rb;
+    private Animator _animator;
     private AudioSource _audioSource;
 
-    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip _jumpClip;
 
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask _groundLayer;
 
     [Header("Value")]
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
 
-
-    private void Start()
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -32,46 +30,37 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        _animator.SetFloat("MoveX", horizontal);
 
-            AudioPlay(jumpClip);
+        if (IsGrounded()) { _animator.SetFloat("MoveY", 0); Debug.Log("¶¥"); }
+        else { _animator.SetFloat("MoveY", 1);  Debug.Log("ÇÑ¸£"); }
+
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y + jumpingPower);
+
+            Debug.Log("das");
+
+            //AudioPlay(_jumpClip);
         }
 
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("321");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-        if (Mathf.Abs(rb.velocity.x) > 3f && IsGrounded())
-        {
-            animator.SetBool("isMove", true);
-
-        }
-        else
-        {
-            animator.SetBool("isMove", false);
-
-        }
         Flip();
+
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y);
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.Raycast(transform.position, Vector2.down, 1f, _groundLayer);
     }
 
     private void Flip()
