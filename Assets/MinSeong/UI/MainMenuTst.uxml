@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/MinSeong/UI/MainMenuTst.uss?fileID=7433441132597879392&amp;guid=88dffd4f5cfeb0644818aa03c0eb9828&amp;type=3#MainMenuTst" />
+    <ui:VisualElement style="flex-grow: 0; width: 100%; height: 100%; align-items: center; justify-content: space-around;">
+        <ui:VisualElement style="width: 100%; height: 40%; align-items: center; justify-content: center; -unity-font-style: bold; color: rgb(247, 203, 255); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+            <ui:Label text="GRAVITER" display-tooltip-when-elided="true" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 200px; letter-spacing: 25px; white-space: normal; align-items: stretch;" />
+        </ui:VisualElement>
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="StartButton" class="MainMenuButton" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="QuitButton" class="MainMenuButton" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,50 @@
+.MainMenuButton {
+    width: 30%;
+    height: 18%;
+    font-size: 120px;
+    border-top-left-radius: 33px;
+    border-bottom-left-radius: 33px;
+    border-top-right-radius: 33px;
+    border-bottom-right-radius: 33px;
+    -unity-font-style: normal;
+    background-color: rgba(234, 174, 255, 0.24);
+    opacity: 1;
+    background-image: none;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-width: 13px;
+    border-right-width: 13px;
+    border-top-width: 13px;
+    border-bottom-width: 13px;
+    -unity-text-align: middle-center;
+    color: rgb(252, 229, 255);
+    transition-duration: 0.5s;
+}
+
+.MainMenuButton:hover {
+    color: rgb(142, 44, 178);
+    background-color: rgb(255, 255, 255);
+}
+
+.MainMenuButton:focus {
+    background-color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: absolute;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    font-size: 0;
+}
