@@ -18,9 +18,9 @@ TagManager:
   - UI
   - 
   - Ground
-  - 
+  - BulletGround
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 39193049
     locked: 0
