@@ -1,41 +1,50 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnemyState
 {
-    public class AIState : CommonState<BossEnemyBrain>
+
+    public class IdleState : CommonState<BossEnemyBrain>
     {
-        public override void OnEnterState(BossEnemyBrain brain)
+        public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-
+            Debug.Log("잘 출력이 되네요 하하");
+            
         }
 
-        public override void OnExitState(BossEnemyBrain brain)
+        public override void OnExitState(BossEnemyBrain ownerEntity)
         {
 
+            Debug.Log("난 아이들인데요 제가 한번 나가볼게요");
         }
 
-        public override void UpdateState(BossEnemyBrain brain)
+        public override void UpdateState(BossEnemyBrain ownerEntity)
         {
-
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
+            }
         }
     }
     public class WalkState : CommonState<BossEnemyBrain>
     {
-        public override void OnEnterState(BossEnemyBrain brain)
+        public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            brain.coins = 2;
+            Debug.Log("안녕하세요 저는 워크스테이트라고 합니다. 저는 상태가 체인지 되었어요.");
         }
 
-        public override void OnExitState(BossEnemyBrain brain)
+        public override void OnExitState(BossEnemyBrain ownerEntity)
         {
-
+            Debug.Log("난 워크인데요 제가 한번 나가볼게요");
         }
 
-        public override void UpdateState(BossEnemyBrain brain)
+        public override void UpdateState(BossEnemyBrain ownerEntity)
         {
-
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Debug.Log("상태를 이전생태로 돌려볼게요");
+                ownerEntity.Brain.RevertBeforeState();
+            }
         }
     }
 }

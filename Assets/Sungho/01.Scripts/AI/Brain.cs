@@ -12,13 +12,15 @@ public class Brain<T> where T : class, new()
     private CommonState<T> continuousState = null; //계속도는 상태(업데이트에서 계속 돈다고 생각하면 됨)
 
     public Dictionary<Enum, CommonState<T>> StateType = new();
-    /* public void Setting<A>(CommonState<T> stats) where A : struct
-     {
-         foreach (var item in Enum.GetValues(typeof(A)))
-         {
-             states.Add(item, stats);
-         }
-     }*/
+    public CommonState<T> GetState(Enum e)
+    {
+        if (StateType.ContainsKey(e))
+        {
+            return StateType[e];
+        }
+        Debug.LogError("State가 존재하지 않습니다. State를 추가했는지 확인해보세요.");
+        return null;
+    }
     public void Setup(T owner, CommonState<T> entryState)
     {
         ownerEntity = owner;
@@ -49,6 +51,10 @@ public class Brain<T> where T : class, new()
         }
         currentState = newState;
         currentState.OnEnterState(ownerEntity);
+    }
+    public void SetContinuousState(CommonState<T> newState)
+    {
+        continuousState = newState;
     }
     public void RevertBeforeState()
     {
