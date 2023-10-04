@@ -9,14 +9,20 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/MinSeong/00.Scenes/test.unity
-    guid: 8b1ae0728e1a1aa43abd2ae9f803d7e2
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Yunjin/00.Scenes/Start.unity
     guid: 2085f04ed36ccfb49b9e1b7cbd725c85
   - enabled: 1
-    path: Assets/MinSeong/00.Scenes/Stage 2.unity
-    guid: 49f3865691a89be408d06b297c33b80e
+    path: Assets/MinSeong/00.Scenes/Scene Season 2/Stage 1.unity
+    guid: 5914a01b81c045e4d97fab64cd59c9b9
+  - enabled: 1
+    path: Assets/MinSeong/00.Scenes/Scene Season 2/Stage 2.unity
+    guid: b0a721336eae4e343ba7eb73dbcc69ad
+  - enabled: 1
+    path: Assets/MinSeong/00.Scenes/Scene Season 2/Stage 3.unity
+    guid: 87ae69caaa8f9ab42a95cc119503449c
   - enabled: 1
     path: Assets/MinSeong/00.Scenes/Stage 3.unity
     guid: 693d7898b8702fc4285ae3cbd6a80364

@@ -69,7 +69,8 @@ public class Playeryj : MonoBehaviour
             if (rigid.gravityScale < 0)
                 rigid.gravityScale *= -1;
             //transform.position = spawnpoint.transform.position;
-            Camera.transform.position = spawnpoint.transform.position;
+            //Camera.transform.position = spawnpoint.transform.position;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if (collision.gameObject.CompareTag("Star"))
         {
