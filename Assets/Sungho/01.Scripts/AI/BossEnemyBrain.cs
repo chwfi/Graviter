@@ -11,12 +11,14 @@ public class BossEnemyBrain : MonoBehaviour
 {
     public Brain<BossEnemyBrain> Brain = new();
 
-
     [Header("½ºÅÈµé")]
-    public float Speed = 3;
+    [SerializeField]
+    private float _speed = 3;
 
     private AnimatorContoller _anim;
     public AnimatorContoller Anim => _anim;
+
+    public float Speed => _speed;
 
     private void Awake()
     {
