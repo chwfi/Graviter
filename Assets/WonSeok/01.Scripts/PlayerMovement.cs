@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour, IAudioPlay
@@ -12,8 +13,8 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     private AudioSource _audioSource;
 
     [SerializeField] private AudioClip _jumpClip;
-
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] UnityEvent OnDie;
 
     [Header("Value")]
     [SerializeField] private float speed = 8f;
@@ -47,7 +48,9 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("321");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _animator.SetBool("isDie", true);
+            OnDie?.Invoke();
         }
         Flip();
 
