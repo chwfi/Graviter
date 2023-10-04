@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    [SerializeField] string nextScene;
     [SerializeField] SceneAsset scene;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +19,20 @@ public class LoadScene : MonoBehaviour
         
     }
 
+    IEnumerator LoadSceneAsync()
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene.name);
+
+        while (!asyncOperation.isDone)
+        {
+            Debug.Log(asyncOperation.progress);
+            yield return null;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            SceneManager.LoadScene(scene.name);
+            StartCoroutine(LoadSceneAsync());
     }
 }
