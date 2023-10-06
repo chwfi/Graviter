@@ -23,6 +23,11 @@ namespace SqStates
         public override void UpdateState(SqBossBrain ownerEntity)
         {
             Debug.Log("Idle ½Ã·©Áß");
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
+            }
         }
     }
 }

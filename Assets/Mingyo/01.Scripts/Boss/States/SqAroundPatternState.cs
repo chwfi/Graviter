@@ -18,19 +18,19 @@ namespace SqStates
 
         public override void OnExitState(SqBossBrain ownerEntity)
         {
-            brain.AnimatorControllerCompo.OnAnimationEndTrigger += ChangeState;
+            brain.AnimatorControllerCompo.OnAnimationEndTrigger -= ChangeState;
 
             Debug.Log("Exit AroundPatternState");
         }
 
         private void ChangeState()
         {
-            //brain.SqBrain.ChangeState();
+            brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
         }
 
         public override void UpdateState(SqBossBrain ownerEntity)
         {
-
+            
         }
     }
 }
