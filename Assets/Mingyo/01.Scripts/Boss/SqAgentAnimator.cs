@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatorContoller : MonoBehaviour
+public class SqAgentAnimator : MonoBehaviour
 {
-    private Animator anim;
+    private Animator _animtor;
+
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        _animtor = GetComponent<Animator>();
     }
 
     #region 애니메이션 이벤트 영역
@@ -30,6 +31,5 @@ public class AnimatorContoller : MonoBehaviour
     {
         OnPreAnimationEventTrigger?.Invoke();
     }
-
-#endregion
+    #endregion
 }

@@ -11,7 +11,6 @@ public class BossEnemyBrain : MonoBehaviour
 {
     public Brain<BossEnemyBrain> Brain = new();
 
-
     [Header("Ω∫≈»µÈ")]
     public float Speed = 3;
 
