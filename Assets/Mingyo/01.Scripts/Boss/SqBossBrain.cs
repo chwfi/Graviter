@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SqStates;
 
 public enum SqState
 {
     Idle,
-    a,
+    AroundPattern,
 }
 
 public class SqBossBrain : MonoBehaviour
@@ -28,12 +29,13 @@ public class SqBossBrain : MonoBehaviour
     {
         foreach (Enum item in Enum.GetValues(typeof(SqState)))
         {
-            var type = Type.GetType($"EnemyState.{item}SqState");
+            Debug.Log($"SqStates.Sq{item}State");
+            var type = Type.GetType($"SqStates.Sq{item}State");
             var instance = Activator.CreateInstance(type) as CommonState<SqBossBrain>;
             SqBrain.StateType.Add(item, instance);
         }
 
-        SqBrain.Setup(this, SqBrain.GetState(State.Idle));
+        SqBrain.Setup(this, SqBrain.GetState(SqState.Idle));
     }
     private void Update()
     {
