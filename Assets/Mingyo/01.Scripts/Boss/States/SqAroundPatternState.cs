@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace SqStates
 {
@@ -11,14 +12,15 @@ namespace SqStates
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
             brain = ownerEntity;
-            brain.AnimatorControllerCompo.OnAnimationEndTrigger += ChangeState;
+            brain.SqAgentAnimator.OnAnimationEndTrigger += ChangeState;
+            brain.SqAgentAnimator.SetAroundPatternAttack(true);
 
             Debug.Log("Enter AroundPatternState");
         }
 
         public override void OnExitState(SqBossBrain ownerEntity)
         {
-            brain.AnimatorControllerCompo.OnAnimationEndTrigger -= ChangeState;
+            brain.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
 
             Debug.Log("Exit AroundPatternState");
         }

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class SqAgentAnimator : MonoBehaviour
 {
-    private Animator _animtor;
+    private Animator _animator;
+    public Animator AnimtorCompo => _animator;
 
     private void Awake()
     {
-        _animtor = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     #region 애니메이션 이벤트 영역
@@ -17,17 +18,24 @@ public class SqAgentAnimator : MonoBehaviour
     public event Action OnAnimationEventTrigger = null; //애니메이션 내의 이벤트 트리거
     public event Action OnAnimationEndTrigger = null; //애니메이션이 종료될때
 
-    private void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
+    public void SetAroundPatternAttack(bool value)
     {
+        if (value) { _animator.SetTrigger(AnimatorKeys.IsAroundAttack); }
+        else { _animator.ResetTrigger(AnimatorKeys.IsAroundAttack); }
+    }
+
+    public void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
+    {
+        Debug.Log("Rmx");
         OnAnimationEndTrigger?.Invoke();
     }
 
-    private void OnAnimationEvent()
+    public void OnAnimationEvent()
     {
         OnAnimationEventTrigger?.Invoke();
     }
 
-    private void OnPreAnimationEvent()
+    public void OnPreAnimationEvent()
     {
         OnPreAnimationEventTrigger?.Invoke();
     }

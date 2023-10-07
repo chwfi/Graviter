@@ -11,7 +11,6 @@ namespace SqStates
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
             brain = ownerEntity;
-            //brain.AnimatorControllerCompo.
             Debug.Log("Enter Idle State");
         }
 
@@ -26,7 +25,7 @@ namespace SqStates
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
+                brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.AroundPattern));
             }
         }
     }

@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 {
     private float horizontal;
     private bool isFacingRight = true;
+    [SerializeField]
+    private int jumpCount;
+    private int maxJumpCount = 1;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -33,14 +36,14 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 
         _animator.SetFloat("MoveX", horizontal);
 
-        if (IsGrounded()) { _animator.SetFloat("MoveY", 0); Debug.Log("¶¥"); }
+        if (IsGrounded()) { _animator.SetFloat("MoveY", 0); jumpCount = maxJumpCount; }
         else { _animator.SetFloat("MoveY", 1);  Debug.Log("ÇÑ¸£"); }
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
         {
-            _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y + jumpingPower);
-
-            Debug.Log("das");
+            Vector2 jumpvelo = new Vector2(horizontal * speed, _rb.velocity.y + jumpingPower);
+            _rb.velocity = jumpCount == 1 ? jumpvelo : jumpvelo * 0.5f;
+            jumpCount--;
 
             //AudioPlay(_jumpClip);
         }

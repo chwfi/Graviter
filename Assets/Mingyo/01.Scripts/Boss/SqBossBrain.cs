@@ -10,6 +10,11 @@ public enum SqState
     AroundPattern,
 }
 
+public struct AnimatorKeys
+{
+    public const string IsAroundAttack = "IsAroundAttack";
+}
+
 public class SqBossBrain : MonoBehaviour
 {
     public Brain<SqBossBrain> SqBrain = new();
@@ -17,12 +22,12 @@ public class SqBossBrain : MonoBehaviour
     [Header("½ºÅÈµé")]
     public float Speed = 3;
 
-    private AnimatorContoller _animator;
-    public AnimatorContoller AnimatorControllerCompo => _animator;
+    private SqAgentAnimator _agentAnimator;
+    public SqAgentAnimator SqAgentAnimator => _agentAnimator;
 
     private void Awake()
     {
-        _animator = transform.Find("Visual").GetComponent<AnimatorContoller>();
+        _agentAnimator = transform.Find("Visual").GetComponent<SqAgentAnimator>();
     }
 
     public void Start()
