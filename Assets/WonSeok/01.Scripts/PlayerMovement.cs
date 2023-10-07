@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     [SerializeField] UnityEvent OnDie;
 
     [Header("Value")]
-    [SerializeField] private float speed = 8f;
+    [SerializeField] public float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
 
     private void Awake()
@@ -85,5 +85,10 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
         _audioSource.Stop();
         _audioSource.clip = clip;
         _audioSource.Play();
+    }
+
+    public void StopImmediately()
+    {
+        _rb.velocity = Vector3.zero;
     }
 }
