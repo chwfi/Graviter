@@ -9,6 +9,7 @@ TagManager:
   - Laser
   - Enemy
   - Lever
+  - SqBoss
   layers:
   - Default
   - TransparentFX
