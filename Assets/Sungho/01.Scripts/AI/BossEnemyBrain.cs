@@ -16,13 +16,16 @@ public class BossEnemyBrain : MonoBehaviour
     private float _speed = 3;
 
     private AnimatorContoller _anim;
+    private AttackPattern _attackPattern;
     public AnimatorContoller Anim => _anim;
+    public AttackPattern AttackPattern => _attackPattern;
 
     public float Speed => _speed;
 
     private void Awake()
     {
         _anim = transform.Find("Sprite").GetComponent<AnimatorContoller>();
+        _attackPattern = GetComponent<AttackPattern>();
     }
     public void Start()
     {
