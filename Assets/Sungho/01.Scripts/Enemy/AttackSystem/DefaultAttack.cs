@@ -8,8 +8,7 @@ public class DefaultAttack : AttackAction
 {
     [SerializeField, TextArea]
     private string _description;
-    public override void Attack(Action action = null)
+    public override void Attack()
     {
-        base.Attack();
     }
 }

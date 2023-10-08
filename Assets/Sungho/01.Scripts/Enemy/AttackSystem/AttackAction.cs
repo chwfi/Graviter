@@ -2,35 +2,47 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public enum AttackActionState
 {
+    Starting,
     Running,
     Complete,
 }
 
 public abstract class AttackAction : ScriptableObject
 {
-    public float AttackDelay;
-    public int NeedAttackCountToCompelete;
+    private float timer = 0;
 
-    private int _currentAttackCount;
     private AttackActionState _attackState;
-
-    public float CurrentAttackCount
+    public AttackActionState AttackState
     {
-        get => _currentAttackCount;
+        get => _attackState;
         set
         {
-            _attackState = _currentAttackCount == NeedAttackCountToCompelete ? AttackActionState.Complete : AttackActionState.Running;
+            _attackState = value;
         }
     }
     public bool IsComplete => _attackState == AttackActionState.Complete;
 
-    public virtual void Attack(Action action = null)
+    public AttackActionState Start()
     {
-        ++CurrentAttackCount;
+        AttackState = AttackActionState.Starting;
+        return AttackState;
+    }
+    public AttackActionState Update()
+    {
+        AttackState = AttackActionState.Running;
+        return AttackState;
+    }
+    public abstract void Attack(); //무조건적으로 Complete을 마지막에 실행시켜줘야 끝남
+    protected void AddTask(float waitTime = 0, Action action = null)
+    {
 
-        action?.Invoke();
+    }
+    protected void Complete()
+    {
+        _attackState = AttackActionState.Complete;
     }
 }

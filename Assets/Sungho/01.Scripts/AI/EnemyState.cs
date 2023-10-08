@@ -51,11 +51,8 @@ namespace EnemyState
         private AttackAction atcAction;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            atcAction = ownerEntity.AttackPattern.GetRandomAttackAction();
-            atcAction.Attack(() =>
-            {
-
-            });
+            atcAction = ownerEntity.AttackPattern.GetRandomAttackAction(); //가중치로 가져옴
+            atcAction.Start();
         }
 
         public override void OnExitState(BossEnemyBrain ownerEntity)
@@ -65,6 +62,8 @@ namespace EnemyState
 
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
+            atcAction.Update();
+
             if (atcAction.IsComplete)
             {
                 ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
