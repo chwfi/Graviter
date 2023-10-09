@@ -251,6 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018520171}
   - component: {fileID: 1018520172}
+  - component: {fileID: 1018520173}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -288,7 +289,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6402e0d0ba6bf124b88b977ec6e0e288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  _speed: 3
+--- !u!114 &1018520173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018520170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c923c6915a7aa4d9358605904e6829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackAction: []
 --- !u!1 &1444728063
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2080012042}
   - component: {fileID: 2080012043}
+  - component: {fileID: 2080012044}
   m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
@@ -508,9 +523,21 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1, y: 0.3}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &2080012044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080012041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018b48e87b216d748877caa0eebdff4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
