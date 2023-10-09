@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 
     [SerializeField] private AudioClip _jumpClip;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] UnityEvent OnDie;
 
     [Header("Value")]
     [SerializeField] public float speed = 8f;
@@ -37,7 +36,7 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
         _animator.SetFloat("MoveX", horizontal);
 
         if (IsGrounded()) { _animator.SetFloat("MoveY", 0); jumpCount = maxJumpCount; }
-        else { _animator.SetFloat("MoveY", 1);  Debug.Log("ÇÑ¸£"); }
+        else { _animator.SetFloat("MoveY", 1); }
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
         {
@@ -46,14 +45,6 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
             jumpCount--;
 
             //AudioPlay(_jumpClip);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("321");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            _animator.SetBool("isDie", true);
-            OnDie?.Invoke();
         }
         Flip();
 

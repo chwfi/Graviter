@@ -31269,6 +31269,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6154256068962806568}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &566160575442124471
 GameObject:
   m_ObjectHideFlags: 0
@@ -31522,6 +31534,7 @@ GameObject:
   - component: {fileID: 2717196733520591140}
   - component: {fileID: 955957134909633621}
   - component: {fileID: 465520352938727150}
+  - component: {fileID: 6154256068962806568}
   m_Layer: 4
   m_Name: Player
   m_TagString: Player
@@ -31563,8 +31576,17 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  OnDie:
-    m_PersistentCalls:
-      m_Calls: []
   speed: 10
   jumpingPower: 8
+--- !u!114 &6154256068962806568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154256068962806563}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28be3bb53b9ba34385a7cd0b7f8a0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
