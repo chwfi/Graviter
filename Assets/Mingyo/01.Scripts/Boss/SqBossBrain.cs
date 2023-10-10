@@ -9,6 +9,7 @@ public enum SqState
     Idle,
     AroundPattern,
     LeftRightPattern,
+    ShootBoltPattern,
 
 }
 

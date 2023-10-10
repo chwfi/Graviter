@@ -23,14 +23,19 @@ namespace SqStates
         {
             Debug.Log("Idle ½Ã·©Áß");
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.AroundPattern));
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.LeftRightPattern));
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.ShootBoltPattern));
             }
         }
     }
