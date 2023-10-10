@@ -24,6 +24,12 @@ public class SqAgentAnimator : MonoBehaviour
         else { _animator.ResetTrigger(AnimatorKeys.IsAroundAttack); }
     }
 
+    public void SetLeftRightPatternAttack(bool value)
+    {
+        if (value) { _animator.SetTrigger(AnimatorKeys.IsLeftRightAttack); }
+        else { _animator.ResetTrigger(AnimatorKeys.IsLeftRightAttack); }
+    }
+
     public void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
     {
         Debug.Log("Rmx");

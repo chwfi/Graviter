@@ -8,11 +8,14 @@ public enum SqState
 {
     Idle,
     AroundPattern,
+    LeftRightPattern,
+
 }
 
 public struct AnimatorKeys
 {
     public const string IsAroundAttack = "IsAroundAttack";
+    public const string IsLeftRightAttack = "IsLeftRightAttack";
 }
 
 public class SqBossBrain : MonoBehaviour

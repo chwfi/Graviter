@@ -27,6 +27,11 @@ namespace SqStates
             {
                 brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.AroundPattern));
             }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.LeftRightPattern));
+            }
         }
     }
 }
