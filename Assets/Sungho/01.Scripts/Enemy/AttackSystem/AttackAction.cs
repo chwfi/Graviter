@@ -27,12 +27,12 @@ public abstract class AttackAction : ScriptableObject
     }
     public bool IsComplete => _attackState == AttackActionState.Complete;
 
-    public AttackActionState Start()
+    public virtual AttackActionState Start()
     {
         AttackState = AttackActionState.Starting;
         return AttackState;
     }
-    public AttackActionState Update()
+    public virtual AttackActionState Update()
     {
         AttackState = AttackActionState.Running;
         return AttackState;
@@ -47,7 +47,7 @@ public abstract class AttackAction : ScriptableObject
         _attackState = AttackActionState.Complete;
     }
 
-    public AttackActionState Exit()
+    public virtual AttackActionState Exit()
     {
         AttackState = AttackActionState.Exit;
         return AttackState;
