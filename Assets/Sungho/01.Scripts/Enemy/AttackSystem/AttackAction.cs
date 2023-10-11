@@ -8,6 +8,7 @@ public enum AttackActionState
 {
     Starting,
     Running,
+    Exit,
     Complete,
 }
 
@@ -44,5 +45,11 @@ public abstract class AttackAction : ScriptableObject
     protected void Complete()
     {
         _attackState = AttackActionState.Complete;
+    }
+
+    public AttackActionState Exit()
+    {
+        AttackState = AttackActionState.Exit;
+        return AttackState;
     }
 }

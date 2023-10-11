@@ -57,7 +57,7 @@ namespace EnemyState
 
         public override void OnExitState(BossEnemyBrain ownerEntity)
         {
-
+            atcAction.Exit();
         }
 
         public override void UpdateState(BossEnemyBrain ownerEntity)
