@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 namespace SqStates
 {
     public class SqShootBoltPatternState : CommonState<SqBossBrain>
     {
-        SqBossBrain brain;
+        SqBossBrain _brain;
         Transform transform;
+
+        float bulletsSpaceSize = 30f;
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            brain = ownerEntity;
+            _brain = ownerEntity;
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger += SpawnBolt;
             //ownerEntity.SqAgentAnimator.SetShootBoltPatternStart(true);
             transform = ownerEntity.transform;
-            transform.DOMoveY(transform.position.y + 10f, 0.3f).SetEase(Ease.Linear).OnComplete(SpawnBolt);
+            transform.DOMoveY(transform.position.y + 10f, 0.3f).SetEase(Ease.Linear).OnComplete(SpawnBoltHandler);
             Debug.Log("Enter SqShootBoltPattern State");
         }
 
@@ -31,15 +34,27 @@ namespace SqStates
 
         }
 
-        private void SpawnBolt()
+        private void SpawnBoltHandler()
         {
-            Debug.Log("º“»Ø");
+            _brain.StartCoroutine(SpawnBoltCorou());
+            
+        }
+
+        private IEnumerator SpawnBoltCorou()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                Debug.Log("dasd");
+                Bolt bolt = GameObject.Instantiate(_brain.BoltPrefab, _brain.BoltsTrmList[i].position, Quaternion.Euler(_brain.BoltsTrmList[i].position));
+                yield return new WaitForSeconds(0.1f);
+            }
             ChangeState();
+
         }
 
         private void ChangeState()
         {
-            brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
+            _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
         }
     }
 }

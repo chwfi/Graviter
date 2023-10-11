@@ -26,6 +26,10 @@ public class SqBossBrain : MonoBehaviour
     [Header("Ω∫≈»µÈ")]
     public float Speed = 3;
 
+    public Bolt BoltPrefab;
+
+    public List<Transform> BoltsTrmList = new List<Transform>();
+
     private SqAgentAnimator _agentAnimator;
     public SqAgentAnimator SqAgentAnimator => _agentAnimator;
 
