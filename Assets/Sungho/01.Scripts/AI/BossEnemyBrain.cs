@@ -5,6 +5,7 @@ public enum State
 {
     Idle,
     Walk,
+    Attack,
 }
 
 public class BossEnemyBrain : MonoBehaviour
@@ -16,16 +17,18 @@ public class BossEnemyBrain : MonoBehaviour
     private float _speed = 3;
 
     private AnimatorContoller _anim;
-    private AttackPattern _attackPattern;
+    private AttackController _attackPattern;
     public AnimatorContoller Anim => _anim;
-    public AttackPattern AttackPattern => _attackPattern;
+    public AttackController AttackPattern => _attackPattern;
+
+
 
     public float Speed => _speed;
 
     private void Awake()
     {
         _anim = transform.Find("Sprite").GetComponent<AnimatorContoller>();
-        _attackPattern = GetComponent<AttackPattern>();
+        _attackPattern = GetComponent<AttackController>();
     }
     public void Start()
     {
@@ -36,7 +39,7 @@ public class BossEnemyBrain : MonoBehaviour
             Brain.StateType.Add(item, instance);
         }
 
-        Brain.Setup(this, Brain.GetState(State.Idle));
+        Brain.Setup(this, Brain.GetState(State.Idle));  
     }
     private void Update()
     {

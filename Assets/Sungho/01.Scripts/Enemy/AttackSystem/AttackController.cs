@@ -14,10 +14,15 @@ public class AttackPatternList
     public float weight = .5f;
 }
 
-public class AttackPattern : MonoBehaviour
+public class AttackController : MonoBehaviour
 {
     [SerializeField]
     private List<AttackPatternList> _attackAction = null;
+
+    public GameObject attackArea;
+    [Header("공격할때 필요한 요소")]
+    [SerializeField]
+    public List<Transform> _transform = null;
 
     private float _totalWeight => _attackAction.Sum(action => action.weight);
 

@@ -25,31 +25,28 @@ public abstract class AttackAction : ScriptableObject
             _attackState = value;
         }
     }
+    protected BossEnemyBrain _brain;
     public bool IsComplete => _attackState == AttackActionState.Complete;
 
-    public virtual AttackActionState Start()
+    public void SetUpBrain(BossEnemyBrain brain)
+    {
+        _brain = brain;
+    }
+    public virtual void Start()
     {
         AttackState = AttackActionState.Starting;
-        return AttackState;
     }
-    public virtual AttackActionState Update()
+    public virtual void Update()
     {
         AttackState = AttackActionState.Running;
-        return AttackState;
     }
-    public abstract void Attack(); //무조건적으로 Complete을 마지막에 실행시켜줘야 끝남
-    protected void AddTask(float waitTime = 0, Action action = null)
+    public virtual void Exit()
     {
-
+        AttackState = AttackActionState.Exit;
     }
     protected void Complete()
     {
         _attackState = AttackActionState.Complete;
     }
 
-    public virtual AttackActionState Exit()
-    {
-        AttackState = AttackActionState.Exit;
-        return AttackState;
-    }
 }

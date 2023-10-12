@@ -302,7 +302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c923c6915a7aa4d9358605904e6829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackAction: []
+  _attackAction:
+  - attackAction: {fileID: 11400000, guid: e54fc0e6630efd442bcdfaa8028b67cb, type: 2}
+    weight: 0.569
+  attackArea: {fileID: 2080012041}
+  _transform: []
 --- !u!1 &1444728063
 GameObject:
   m_ObjectHideFlags: 0

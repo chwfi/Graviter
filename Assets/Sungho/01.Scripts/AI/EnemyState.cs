@@ -52,6 +52,8 @@ namespace EnemyState
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
             atcAction = ownerEntity.AttackPattern.GetRandomAttackAction(); //가중치로 가져옴
+
+            atcAction.SetUpBrain(ownerEntity);
             atcAction.Start();
         }
 
