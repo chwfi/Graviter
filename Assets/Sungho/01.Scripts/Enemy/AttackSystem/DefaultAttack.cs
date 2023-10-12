@@ -24,12 +24,12 @@ public class DefaultAttack : AttackAction
     }
     private void OnEventAnimHandle()
     {
-        _brain.AttackPattern.attackArea.SetActive(true);
+        _brain.AttackController.attackArea.SetActive(true);
     }
 
     private void OnEndAnimHandle()
     {
-        _brain.AttackPattern.attackArea.SetActive(false);
+        _brain.AttackController.attackArea.SetActive(false);
 
         Complete();
     }

@@ -1,40 +1,20 @@
 using DG.Tweening;
 using System.Collections;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace EnemyState
 {
-
-    public class ChaseState : CommonState<BossEnemyBrain>
+    public class IdleState : CommonState<BossEnemyBrain>
     {
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            Debug.Log("잘 출력이 되네요 하하");
+            ownerEntity.Anim.IsChase(false);
         }
 
         public override void OnExitState(BossEnemyBrain ownerEntity)
         {
-            Debug.Log("난 아이들인데요 제가 한번 나가볼게요");
-        }
-
-        public override void UpdateState(BossEnemyBrain ownerEntity)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
-            }
-        }
-    }
-    public class WalkState : CommonState<BossEnemyBrain>
-    {
-        public override void OnEnterState(BossEnemyBrain ownerEntity)
-        {
-            Debug.Log("안녕하세요 저는 워크스테이트라고 합니다. 저는 상태가 체인지 되었어요.");
-        }
-
-        public override void OnExitState(BossEnemyBrain ownerEntity)
-        {
-            Debug.Log("난 워크인데요 제가 한번 나가볼게요");
+            
         }
 
         public override void UpdateState(BossEnemyBrain ownerEntity)
@@ -46,12 +26,33 @@ namespace EnemyState
             }
         }
     }
+    public class ChaseState : CommonState<BossEnemyBrain>
+    {
+        public override void OnEnterState(BossEnemyBrain ownerEntity)
+        {
+            ownerEntity.Anim.IsChase(true);
+        }
+
+        public override void OnExitState(BossEnemyBrain ownerEntity)
+        {
+
+        }
+
+        public override void UpdateState(BossEnemyBrain ownerEntity)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));
+            }
+        }
+    }
+
     public class AttackState : CommonState<BossEnemyBrain>
     {
         private AttackAction atcAction;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            atcAction = ownerEntity.AttackPattern.GetRandomAttackAction(); //가중치로 가져옴
+            atcAction = ownerEntity.AttackController.GetRandomAttackAction(); //가중치로 가져옴
 
             atcAction.SetUpBrain(ownerEntity);
             atcAction.Start();
@@ -68,7 +69,7 @@ namespace EnemyState
 
             if (atcAction.IsComplete)
             {
-                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));
             }
         }
     }
