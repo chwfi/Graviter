@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class Bolt : MonoBehaviour
     private float speed;
 
     Rigidbody2D _rigidbody;
+    CircleCollider2D _circleCollider;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Update()
@@ -29,6 +32,15 @@ public class Bolt : MonoBehaviour
     {
         //¹Ù²ã¾ß´ï
         Debug.Log(collision.gameObject.name);
-        Destroy(this.gameObject);
+        _rigidbody.gravityScale = 1;
+        _circleCollider.isTrigger = false;
+
+        if (collision.CompareTag("Player") || collision.CompareTag("SqBoss")) { Destroy(gameObject); }
     }
+
+    public void RiseUp()
+    {
+        _rigidbody.velocity = Vector2.up * speed;
+    }
+
 }

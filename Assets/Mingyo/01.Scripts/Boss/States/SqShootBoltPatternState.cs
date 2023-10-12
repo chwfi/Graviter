@@ -38,7 +38,6 @@ namespace SqStates
         private void SpawnBoltHandler()
         {
             _brain.StartCoroutine(SpawnBoltCorou());
-            
         }
 
         private IEnumerator SpawnBoltCorou()
@@ -56,7 +55,6 @@ namespace SqStates
             }
 
             ChangeState();
-
         }
 
         private void ChangeState()
