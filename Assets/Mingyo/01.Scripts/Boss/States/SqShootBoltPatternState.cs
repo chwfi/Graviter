@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Unity.VisualScripting;
 
 namespace SqStates
 {
@@ -11,11 +12,10 @@ namespace SqStates
         SqBossBrain _brain;
         Transform transform;
 
-        private List<Bolt> boltsList;
+        private List<Bolt> boltsList = new List<Bolt>();
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            boltsList = new List<Bolt>();
             _brain = ownerEntity;
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger += SpawnBolt;
             //ownerEntity.SqAgentAnimator.SetShootBoltPatternStart(true);
@@ -27,6 +27,11 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= SpawnBolt;
+            foreach(var bolt in boltsList)
+            {
+                GameObject.Destroy(bolt.gameObject);
+            }
+            boltsList.Clear();
             Debug.Log("Exit SqShootBoltPattern State");
         }
 
@@ -59,9 +64,12 @@ namespace SqStates
 
         private void ChangeState()
         {
-            transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
+            DOTween.To(() => _brain.Stamina, x => _brain.Stamina = x, 50f, 15f).OnComplete(() =>
             {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
+                transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
+                });
             });
         }
     }

@@ -31,11 +31,22 @@ public class Bolt : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //¹Ù²ã¾ß´ï
-        Debug.Log(collision.gameObject.name);
         _rigidbody.gravityScale = 1;
         _circleCollider.isTrigger = false;
 
-        if (collision.CompareTag("Player") || collision.CompareTag("SqBoss")) { Destroy(gameObject); }
+        if (collision.CompareTag("Player") || collision.CompareTag("SqBoss"))
+        {
+            if(collision.TryGetComponent(out IDamageable hit))
+            {
+                Debug.Log($"Hit{collision.name}");
+                hit.OnDamage();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log($"Hit{collision.name}");
+            }
+        }
     }
 
     public void RiseUp()

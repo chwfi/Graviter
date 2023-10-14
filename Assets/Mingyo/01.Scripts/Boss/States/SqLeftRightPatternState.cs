@@ -19,6 +19,7 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
+            brain.MinusStamina();
             Debug.Log("Exit SqLeftRightPattern State");
         }
 

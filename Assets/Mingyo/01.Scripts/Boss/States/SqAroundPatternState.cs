@@ -21,6 +21,7 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             brain.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
+            brain.MinusStamina();
 
             Debug.Log("Exit AroundPatternState");
         }
