@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Unity.VisualScripting;
 
 namespace SqStates
 {
@@ -11,11 +12,10 @@ namespace SqStates
         SqBossBrain _brain;
         Transform transform;
 
-        private List<Bolt> boltsList;
+        private List<Bolt> boltsList = new List<Bolt>();
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            boltsList = new List<Bolt>();
             _brain = ownerEntity;
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger += SpawnBolt;
             //ownerEntity.SqAgentAnimator.SetShootBoltPatternStart(true);
@@ -27,6 +27,7 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= SpawnBolt;
+            
             Debug.Log("Exit SqShootBoltPattern State");
         }
 
@@ -38,7 +39,6 @@ namespace SqStates
         private void SpawnBoltHandler()
         {
             _brain.StartCoroutine(SpawnBoltCorou());
-            
         }
 
         private IEnumerator SpawnBoltCorou()
@@ -55,15 +55,29 @@ namespace SqStates
                 bolt.Shoot();
             }
 
-            ChangeState();
+            _brain.MinusStamina();
 
+            ChangeState();
         }
 
         private void ChangeState()
         {
-            transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
+            DOTween.To(() => _brain.Stamina, x => _brain.Stamina = x, 50f, 15f).OnUpdate(() => _brain.StaminaBar.value = _brain.Stamina).OnComplete(() =>
             {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
+                transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+
+                    foreach (var bolt in boltsList)
+                    {
+                        Debug.Log("Ã³»Ñ¼Å¹ö¸²");
+                        GameObject.Destroy(bolt.gameObject);
+                    }
+                    boltsList.Clear();
+
+
+                    Debug.Log("Ã³»Ñ¼Å¹ö¸²213123213213213213213213123421312321312324124213234213213");
+                    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
+                });
             });
         }
     }

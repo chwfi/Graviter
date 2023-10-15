@@ -23,6 +23,9 @@ public class PlayerHp : MonoBehaviour
             case "BlackholeBoss":
                 OnDie?.Invoke();
                 break;
+            case "SqBolt":
+                OnDie?.Invoke();
+                break;
             default:
                 break;
         }

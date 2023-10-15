@@ -38,7 +38,6 @@ public class SqAgentAnimator : MonoBehaviour
 
     public void OnAnimationEnd() //애니메이션이 종료되면 이게 실행된다.
     {
-        Debug.Log("Rmx");
         OnAnimationEndTrigger?.Invoke();
     }
 
