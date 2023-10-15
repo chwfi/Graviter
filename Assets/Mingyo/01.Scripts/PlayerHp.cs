@@ -21,6 +21,7 @@ public class PlayerHp : MonoBehaviour
         {
             case "SqBoss":
             case "BlackholeBoss":
+            case "Obstacle":
                 OnDie?.Invoke();
                 break;
             case "SqBolt":
