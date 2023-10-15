@@ -24,7 +24,6 @@ public class Bolt : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("asd");
         _rigidbody.velocity = -transform.right * speed;
     }
 
@@ -36,7 +35,7 @@ public class Bolt : MonoBehaviour
 
         if (collision.CompareTag("Player") || collision.CompareTag("SqBoss"))
         {
-            if(collision.TryGetComponent(out IDamageable hit))
+            if(collision.transform.root.TryGetComponent(out IDamageable hit))
             {
                 Debug.Log($"Hit{collision.name}");
                 hit.OnDamage();
@@ -44,6 +43,7 @@ public class Bolt : MonoBehaviour
             }
             else
             {
+                Destroy(gameObject);
                 Debug.Log($"Hit{collision.name}");
             }
         }
@@ -51,7 +51,12 @@ public class Bolt : MonoBehaviour
 
     public void RiseUp()
     {
-        _rigidbody.velocity = Vector2.up * speed;
+        _rigidbody.velocity = Vector2.up * 30;
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.Kill(this);
     }
 
 }

@@ -7,7 +7,7 @@ public class Brain<T> where T : class, new()
 {
     private T ownerEntity;
 
-    private CommonState<T> currentState = null; //현재 상태
+    public CommonState<T> currentState = null; //현재 상태
     private CommonState<T> previousState = null; //이전에 상태
     private CommonState<T> continuousState = null; //계속도는 상태(업데이트에서 계속 돈다고 생각하면 됨)
 

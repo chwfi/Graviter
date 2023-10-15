@@ -37,8 +37,7 @@ public class SqBossBrain : MonoBehaviour, IDamageable
     [Header("할당해라")]
     [SerializeField]
     private Slider hpBar;
-    [SerializeField]
-    private Slider staminaBar;
+    public Slider StaminaBar;
 
     public Bolt BoltPrefab;
 
@@ -54,8 +53,9 @@ public class SqBossBrain : MonoBehaviour, IDamageable
 
     public void Start()
     {
-        hpBar.value = Hp;
-        staminaBar.value = Stamina;
+        DOTween.To(() => StaminaBar.value, x => StaminaBar.value = x, Stamina, 1.5f);
+        DOTween.To(() => hpBar.value, x => hpBar.value = x, Hp, 1.5f);
+
         foreach (Enum item in Enum.GetValues(typeof(SqState)))
         {
             Debug.Log($"SqStates.Sq{item}State");
@@ -73,19 +73,26 @@ public class SqBossBrain : MonoBehaviour, IDamageable
 
     public void OnDamage()
     {
-        Hp -= 10f;
+        float endValue = Hp - 10f;
+        DOTween.To(() => Hp, x => Hp = x, endValue, 0.7f).OnUpdate(() => hpBar.value = Hp);
         if (Hp <= 0) { OnDie?.Invoke(); }
-        hpBar.value = Hp;
     }
 
     public void MinusStamina()
     {
         float endValue = Stamina - 10;
-        DOTween.To(() => Stamina, x => Stamina = x, endValue, 0.7f).OnUpdate(() => staminaBar.value = Stamina);
-        if (Stamina <= 10)
+        DOTween.To(() => Stamina, x => Stamina = x, endValue, 0.7f).OnUpdate(() =>
         {
-            Debug.Log("스태미나빵");                                           //실행하면 미친개버그 
-            //SqBrain.ChangeState(SqBrain.GetState(SqState.ShootBoltPattern));//실행하면 미친개버그 
-        }
+            StaminaBar.value = Stamina;
+        }).OnComplete(() =>
+        {
+        if (Stamina <= 0 && SqBrain.currentState != SqBrain.GetState(SqState.ShootBoltPattern))
+            {
+                Debug.Log("스태미나빵");
+                SqBrain.ChangeState(SqBrain.GetState(SqState.ShootBoltPattern));
+                DOTween.Kill(this);
+            }
+        });
+        
     }
 }

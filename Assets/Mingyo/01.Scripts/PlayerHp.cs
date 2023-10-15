@@ -22,6 +22,9 @@ public class PlayerHp : MonoBehaviour
             case "SqBoss":
                 OnDie?.Invoke();
                 break;
+            case "SqBolt":
+                OnDie?.Invoke();
+                break;
             default:
                 break;
         }
