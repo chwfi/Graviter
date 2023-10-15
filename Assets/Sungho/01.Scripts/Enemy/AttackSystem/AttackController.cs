@@ -19,10 +19,9 @@ public class AttackController : MonoBehaviour
     [SerializeField]
     private List<AttackPatternList> _attackAction = null;
 
-    public GameObject attackArea;
     [Header("공격할때 필요한 요소")]
-    [SerializeField]
-    public List<Transform> _transform = null;
+    public GameObject PlayerObject = null;
+    public GameObject ThisObject => gameObject;
 
     private float _totalWeight => _attackAction.Sum(action => action.weight);
 

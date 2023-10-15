@@ -20,6 +20,7 @@ public class PlayerHp : MonoBehaviour
         switch (collision.tag)
         {
             case "SqBoss":
+            case "BlackholeBoss":
                 OnDie?.Invoke();
                 break;
             default:

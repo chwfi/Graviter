@@ -58,6 +58,9 @@ public class Brain<T> where T : class, new()
     }
     public void RevertBeforeState()
     {
-        ChangeState(previousState);
+        if (previousState == null)
+            Debug.LogError("이전 상태가 없네용");
+        else
+            ChangeState(previousState);
     }
 }

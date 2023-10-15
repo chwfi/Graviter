@@ -4,7 +4,6 @@ using EnemyState;
 public enum State
 {
     Idle,
-    Chase,
     Attack,
 }
 

@@ -7,46 +7,36 @@ namespace EnemyState
 {
     public class IdleState : CommonState<BossEnemyBrain>
     {
+        private float waitTimeToNextState = 8;
+        private float timer = 0;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            ownerEntity.Anim.IsChase(false);
+            ownerEntity.transform.DOMove(Vector2.zero, 1);
+
+            timer = 0;
+            waitTimeToNextState += Random.Range(-3, 3);
         }
 
         public override void OnExitState(BossEnemyBrain ownerEntity)
         {
-            
+
         }
 
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            /*if (Input.GetKeyDown(KeyCode.R))
             {
                 Debug.Log("상태를 이전생태로 돌려볼게요");
                 ownerEntity.Brain.RevertBeforeState();
-            }
+            }*/
+            Debug.Log("아이들상태");
+
+            timer += Time.deltaTime;
+            if (timer >= waitTimeToNextState)
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Attack));
+            Debug.Log(timer);
         }
     }
-    public class ChaseState : CommonState<BossEnemyBrain>
-    {
-        public override void OnEnterState(BossEnemyBrain ownerEntity)
-        {
-            ownerEntity.Anim.IsChase(true);
-        }
-
-        public override void OnExitState(BossEnemyBrain ownerEntity)
-        {
-
-        }
-
-        public override void UpdateState(BossEnemyBrain ownerEntity)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));
-            }
-        }
-    }
-
     public class AttackState : CommonState<BossEnemyBrain>
     {
         private AttackAction atcAction;
@@ -54,7 +44,7 @@ namespace EnemyState
         {
             atcAction = ownerEntity.AttackController.GetRandomAttackAction(); //가중치로 가져옴
 
-            atcAction.SetUpBrain(ownerEntity);
+            atcAction.SetUpAttackController(ownerEntity.AttackController);
             atcAction.Start();
         }
 
@@ -66,7 +56,7 @@ namespace EnemyState
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
             atcAction.Update();
-
+            Debug.Log("어택상태");
             if (atcAction.IsComplete)
             {
                 ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));

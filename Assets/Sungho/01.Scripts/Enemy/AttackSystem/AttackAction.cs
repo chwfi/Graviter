@@ -25,28 +25,26 @@ public abstract class AttackAction : ScriptableObject
             _attackState = value;
         }
     }
-    protected BossEnemyBrain _brain;
-    public bool IsComplete => _attackState == AttackActionState.Complete;
+    protected AttackController attackController;
+    public bool IsComplete = false;
 
-    public void SetUpBrain(BossEnemyBrain brain)
+    public void SetUpAttackController(AttackController brain)
     {
-        _brain = brain;
+        attackController = brain;
     }
     public virtual void Start()
     {
-        AttackState = AttackActionState.Starting;
+        IsComplete = false;
     }
     public virtual void Update()
     {
-        AttackState = AttackActionState.Running;
     }
     public virtual void Exit()
     {
-        AttackState = AttackActionState.Exit;
     }
     protected void Complete()
     {
-        _attackState = AttackActionState.Complete;
+        IsComplete = true;
     }
 
 }
