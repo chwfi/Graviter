@@ -59,4 +59,9 @@ public class Bolt : MonoBehaviour
         DOTween.Kill(this);
     }
 
+    private void OnDisable()
+    {
+        DOTween.Kill(this);
+    }
+
 }
