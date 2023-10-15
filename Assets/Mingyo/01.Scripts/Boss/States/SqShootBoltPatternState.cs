@@ -27,7 +27,17 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= SpawnBolt;
-            
+
+            foreach (var bolt in boltsList)
+            {
+                if (bolt != null)
+                {
+                    Debug.Log("Ã³»Ñ¼Å¹ö¸²");
+                    DOTween.Kill(bolt.transform);
+                    GameObject.Destroy(bolt.gameObject);
+                }
+            }
+
             Debug.Log("Exit SqShootBoltPattern State");
         }
 
@@ -66,16 +76,6 @@ namespace SqStates
             {
                 transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
                 {
-
-                    foreach (var bolt in boltsList)
-                    {
-                        Debug.Log("Ã³»Ñ¼Å¹ö¸²");
-                        GameObject.Destroy(bolt.gameObject);
-                    }
-                    boltsList.Clear();
-
-
-                    Debug.Log("Ã³»Ñ¼Å¹ö¸²213123213213213213213213123421312321312324124213234213213");
                     _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
                 });
             });
