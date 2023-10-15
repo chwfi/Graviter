@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Lever
   - SqBoss
+  - Spawnpoint
+  - Obstacle
+  - sqBolt
   - BlackholeBoss
   layers:
   - Default
