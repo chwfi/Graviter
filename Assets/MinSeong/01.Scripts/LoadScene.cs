@@ -7,23 +7,15 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
     [SerializeField] SceneAsset scene;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool fdisDone = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     IEnumerator LoadSceneAsync()
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene.name);
 
-        while (!asyncOperation.isDone)
+        while (!asyncOperation.isDone && fdisDone)
         {
             Debug.Log(asyncOperation.progress);
             yield return null;
@@ -33,6 +25,9 @@ public class LoadScene : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
+        {
+
             StartCoroutine(LoadSceneAsync());
+        }
     }
 }
