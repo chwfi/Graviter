@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/AttackSystem/AttackAction", fileName = "FollowAttack")]
+[CreateAssetMenu(menuName = "SO/AttackSystem/FollowAttack", fileName = "AttackAction_FollowAttack")]
 public class FollowAttack : AttackAction
 {
     [SerializeField, TextArea]
     private string _description;
     [SerializeField]
-    private float FollowTime = 3;
+    private float FollowTime = 5;
     [SerializeField]
     private float MoveSpeed = 3;
 

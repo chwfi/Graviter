@@ -12,6 +12,7 @@ namespace EnemyState
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
             ownerEntity.transform.DOMove(Vector2.zero, 1);
+            ownerEntity.BlackholeObj.transform.DOScale(Vector2.one, 1);
 
             timer = 0;
             waitTimeToNextState += Random.Range(-3, 3);
@@ -55,7 +56,6 @@ namespace EnemyState
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
             atcAction.Update();
-            Debug.Log("어택상태");
             if (atcAction.IsComplete)
             {
                 ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));

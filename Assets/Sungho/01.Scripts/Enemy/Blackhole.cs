@@ -8,10 +8,11 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Blackhole : MonoBehaviour
 {
-    public const float GRAVITY_PULL = 7000.0f;
-    private const float SWIRLSTRENGTH = 5f;
+    public float SWIRLSTRENGTH = 10f;
 
     private float _gravityRadius = 7.0f;
+
+    private bool isDetected = false;
     private List<Rigidbody2D> _rigidBodies = new List<Rigidbody2D>();
     void Update()
     {
@@ -41,7 +42,10 @@ public class Blackhole : MonoBehaviour
             _rigidBodies.Add(in_other.attachedRigidbody);
         }
     }
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _rigidBodies.Remove(collision.attachedRigidbody);
+    }
     private void UpdateBlackHole()
     {
         if (_rigidBodies != null)

@@ -13,36 +13,45 @@ public class TimeSliderController : MonoBehaviour
 
     private Slider _timeSlider;
     private bool isComplated = false;
+    private bool isActived = true;
     private float timer = 0;
     void Start()
     {
         _timeSlider = GetComponent<Slider>();
         isComplated = false;
+        isActived = true;
         timer = 0;
     }
 
     void Update()
     {
-        if (isComplated == false)
+        if (isActived == true)
         {
-            timer += Time.deltaTime;
-            if (timer >= setTime) isComplated = true;
-            else
+            if (isComplated == false)
             {
-                _timeSlider.value =
-                    Mathf.Lerp(_timeSlider.minValue, _timeSlider.maxValue, timer / setTime);
-            }
+                timer += Time.deltaTime;
+                if (timer >= setTime) isComplated = true;
+                else
+                {
+                    _timeSlider.value =
+                        Mathf.Lerp(_timeSlider.minValue, _timeSlider.maxValue, timer / setTime);
+                }
 
-        }
-        else if (isComplated == true)
-        {
-            OnComplated?.Invoke();
-            Complate();
+            }
+            else if (isComplated == true)
+            {
+                OnComplated?.Invoke();
+                Complate();
+            }
         }
     }
 
     private void Complate()
     {
 
+    }
+    public void SetTimerStop()
+    {
+        isActived = false;
     }
 }

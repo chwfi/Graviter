@@ -24,6 +24,7 @@ public abstract class AttackAction : ScriptableObject
         }
     }
     protected AttackController attackController;
+    [HideInInspector]
     public bool IsComplete = false;
 
     public void SetUpAttackController(AttackController brain)

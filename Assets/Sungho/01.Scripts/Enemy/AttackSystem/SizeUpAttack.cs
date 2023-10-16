@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "SO/AttackSystem/SizeUpAttack", fileName = "AttackAction_SizeUpAttack")]
 public class SizeUpAttack : AttackAction
 {
     [SerializeField]
@@ -11,14 +13,17 @@ public class SizeUpAttack : AttackAction
     private float timer = 0;
 
     private GameObject _blackhole;
-    private Vector2 _defaultSize;
     private Vector2 _maxSize;
     public override void Start()
     {
         base.Start();
+
+        timer = 0;
+
         _blackhole = attackController.ThisObject.transform.Find("Blackhole").gameObject;
-        _defaultSize = _blackhole.transform.localScale;
         _maxSize = new Vector2(MaxSize, MaxSize);
+
+        _blackhole.transform.DOScale(_maxSize, 3);
     }
     public override void Update()
     {
@@ -28,12 +33,9 @@ public class SizeUpAttack : AttackAction
             Debug.Log("공격끝남");
             Complete();
         }
-        else
-        {
-            _blackhole.transform.localScale = Vector2.Lerp(_blackhole.transform.localScale, _maxSize, timer / 2);
-        }
     }
     public override void Exit()
     {
+
     }
 }
