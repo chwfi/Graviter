@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour, IAudioPlay
+public class PlayerBossSceneMovement : MonoBehaviour, IAudioPlay
 {
     private float horizontal;
     private bool isFacingRight = true;
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-
+        transform.Translate(new Vector2(horizontal, 0) * speed * Time.deltaTime);
         _animator.SetFloat("MoveX", horizontal);
 
         if (IsGrounded()) { _animator.SetFloat("MoveY", 0); jumpCount = maxJumpCount; }
@@ -41,22 +41,39 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
         {
-            Vector2 jumpvelo = new Vector2(horizontal * speed, _rb.velocity.y + jumpingPower);
-            _rb.velocity = jumpCount == 1 ? jumpvelo : jumpvelo * 0.5f;
-            jumpCount--;
+            /*  Vector2 jumpvelo = new Vector2(0, _rb.velocity.y + jumpingPower);
+              _rb.velocity = jumpCount == 1 ? jumpvelo : jumpvelo * 0.5f;
+              jumpCount--;*/
 
-            //AudioPlay(_jumpClip);
+            transform.DOJump(transform.position + transform.up, .5f, 1, .8f);
+
+            AudioPlay(_jumpClip);
         }
         Flip();
 
-    }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Physics2D.gravity = new Vector2(0, -9.81f);
+            transform.DORotate(new Vector3(0, 0, 0), .7f);
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Physics2D.gravity = new Vector2(0, 9.81f);
+            transform.DORotate(new Vector3(0, 0, 180), .7f);
 
-    private void FixedUpdate()
-    {
-        _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Physics2D.gravity = new Vector2(-9.81f, 0);
+            transform.DORotate(new Vector3(0, 0, 270), .7f);
 
-        _rb.AddForce(new Vector2(-1, 0) * _rb.gravityScale);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Physics2D.gravity = new Vector2(9.81f, 0);
+            transform.DORotate(new Vector3(0, 0, 90), .7f);
 
+        }
     }
 
     private bool IsGrounded()
