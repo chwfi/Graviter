@@ -17,8 +17,6 @@ public class PlayerGravityAbilty : MonoBehaviour
             foreach (RaycastHit2D hit in hits)
             {
                 hit.transform.GetComponent<Bolt>().RiseUp();
-                Vector2 hitPoint = hit.point;
-                Vector2 normal = hit.normal;
             }
         }
     }
