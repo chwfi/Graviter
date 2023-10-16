@@ -38,6 +38,8 @@ public class SqBossBrain : MonoBehaviour, IDamageable
     [SerializeField]
     private Slider hpBar;
     public Slider StaminaBar;
+    public GameObject LeftRightPatternWarningZone;
+    public GameObject MoveAroundPatternWarningZone;
 
     public Bolt BoltPrefab;
 

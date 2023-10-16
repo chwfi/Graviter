@@ -14,6 +14,7 @@ namespace SqStates
 
         private List<Bolt> boltsList = new List<Bolt>();
 
+
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
             _brain = ownerEntity;
@@ -27,7 +28,16 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             //ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= SpawnBolt;
-            
+
+            foreach (var bolt in boltsList)
+            {
+                if (bolt != null)
+                {
+                    Debug.Log("Ã³»Ñ¼Å¹ö¸²");
+                    GameObject.Destroy(bolt.gameObject);
+                }
+            }
+            boltsList.Clear();
             Debug.Log("Exit SqShootBoltPattern State");
         }
 
@@ -62,20 +72,10 @@ namespace SqStates
 
         private void ChangeState()
         {
-            DOTween.To(() => _brain.Stamina, x => _brain.Stamina = x, 50f, 15f).OnUpdate(() => _brain.StaminaBar.value = _brain.Stamina).OnComplete(() =>
+            DOTween.To(() => _brain.Stamina, x => _brain.Stamina = x, 30f, 15f).OnUpdate(() => _brain.StaminaBar.value = _brain.Stamina).OnComplete(() =>
             {
                 transform.DOMoveY(transform.position.y - 10f, 0.8f).SetEase(Ease.Linear).OnComplete(() =>
                 {
-
-                    foreach (var bolt in boltsList)
-                    {
-                        Debug.Log("Ã³»Ñ¼Å¹ö¸²");
-                        GameObject.Destroy(bolt.gameObject);
-                    }
-                    boltsList.Clear();
-
-
-                    Debug.Log("Ã³»Ñ¼Å¹ö¸²213123213213213213213213123421312321312324124213234213213");
                     _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
                 });
             });
