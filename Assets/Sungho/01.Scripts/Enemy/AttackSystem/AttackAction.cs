@@ -14,8 +14,6 @@ public enum AttackActionState
 
 public abstract class AttackAction : ScriptableObject
 {
-    private float timer = 0;
-
     private AttackActionState _attackState;
     public AttackActionState AttackState
     {
@@ -36,12 +34,8 @@ public abstract class AttackAction : ScriptableObject
     {
         IsComplete = false;
     }
-    public virtual void Update()
-    {
-    }
-    public virtual void Exit()
-    {
-    }
+    public abstract void Update();
+    public abstract void Exit();
     protected void Complete()
     {
         IsComplete = true;

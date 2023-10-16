@@ -30,8 +30,7 @@ public class Blackhole : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D in_other)
     {
-        if (in_other.attachedRigidbody != null
-            && _rigidBodies != null)
+        if (in_other.attachedRigidbody != null && _rigidBodies != null)
         {
             Vector3 direction =
                     transform.position - in_other.attachedRigidbody.transform.position;

@@ -53,6 +53,9 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     private void FixedUpdate()
     {
         _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y);
+
+        _rb.AddForce(new Vector2(-1, 0) * _rb.gravityScale);
+
     }
 
     private bool IsGrounded()

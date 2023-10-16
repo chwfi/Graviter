@@ -34,7 +34,6 @@ namespace EnemyState
             timer += Time.deltaTime;
             if (timer >= waitTimeToNextState)
                 ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Attack));
-            Debug.Log(timer);
         }
     }
     public class AttackState : CommonState<BossEnemyBrain>
