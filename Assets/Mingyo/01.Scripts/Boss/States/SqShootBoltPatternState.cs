@@ -14,6 +14,7 @@ namespace SqStates
 
         private List<Bolt> boltsList = new List<Bolt>();
 
+
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
             _brain = ownerEntity;
@@ -33,11 +34,10 @@ namespace SqStates
                 if (bolt != null)
                 {
                     Debug.Log("Ã³»Ñ¼Å¹ö¸²");
-                    DOTween.Kill(bolt.transform);
                     GameObject.Destroy(bolt.gameObject);
                 }
             }
-
+            boltsList.Clear();
             Debug.Log("Exit SqShootBoltPattern State");
         }
 
