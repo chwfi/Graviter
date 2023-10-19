@@ -95,11 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6618844840785538573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9adec03158915bf488f1998df6791c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 89e1a39b9c5305547aa85110f81a659c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 87ae69caaa8f9ab42a95cc119503449c, type: 3}
-  fdObj: {fileID: 5656158866573795690, guid: 0c0f2d3296559a346ab5bde703d42ffe, type: 3}
+  sceneName: 
 --- !u!61 &6618844840785538577
 BoxCollider2D:
   m_ObjectHideFlags: 0

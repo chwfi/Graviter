@@ -882,7 +882,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.5
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -906,7 +906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195675684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1800001, y: -1.6, z: -10}
+  m_LocalPosition: {x: -3.7746449, y: -1.59876, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7101,6 +7101,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6618844840785538578, guid: 049746707794cf148891c407f3dba4cd, type: 3}
+      propertyPath: sceneName
+      value: 
+      objectReference: {fileID: 102900000, guid: 87ae69caaa8f9ab42a95cc119503449c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049746707794cf148891c407f3dba4cd, type: 3}
 --- !u!4 &7970212293244271523 stripped
