@@ -13,6 +13,7 @@ public enum SqState
     AroundPattern,
     LeftRightPattern,
     ShootBoltPattern,
+    RushPattern,
 
 }
 
@@ -20,6 +21,7 @@ public struct AnimatorKeys
 {
     public const string IsAroundAttack = "IsAroundAttack";
     public const string IsLeftRightAttack = "IsLeftRightAttack";
+    public const string IsRushAttack = "IsRushAttack";
 }
 
 public class SqBossBrain : MonoBehaviour, IDamageable
@@ -47,6 +49,8 @@ public class SqBossBrain : MonoBehaviour, IDamageable
 
     private SqAgentAnimator _agentAnimator;
     public SqAgentAnimator SqAgentAnimator => _agentAnimator;
+
+    public bool IsBoltParttern => Stamina <= 10;
 
     private void Awake()
     {
@@ -86,15 +90,6 @@ public class SqBossBrain : MonoBehaviour, IDamageable
         DOTween.To(() => Stamina, x => Stamina = x, endValue, 0.7f).OnUpdate(() =>
         {
             StaminaBar.value = Stamina;
-        }).OnComplete(() =>
-        {
-        if (Stamina <= 0 && SqBrain.currentState != SqBrain.GetState(SqState.ShootBoltPattern))
-            {
-                Debug.Log("½ºÅÂ¹Ì³ª»§");
-                SqBrain.ChangeState(SqBrain.GetState(SqState.ShootBoltPattern));
-                DOTween.Kill(this);
-            }
         });
-        
     }
 }

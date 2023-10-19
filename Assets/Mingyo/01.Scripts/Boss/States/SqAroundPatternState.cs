@@ -7,39 +7,39 @@ namespace SqStates
 {
     public class SqAroundPatternState : CommonState<SqBossBrain>
     {
-        SqBossBrain brain;
+        SqBossBrain _brain;
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            brain = ownerEntity;
-            brain.SqAgentAnimator.OnAnimationEndTrigger += ChangeState;
+            _brain = ownerEntity;
+            _brain.SqAgentAnimator.OnAnimationEndTrigger += ChangeState;
             
-            brain.StartCoroutine(EnterStateCorou());
+            _brain.StartCoroutine(EnterStateCorou());
 
             Debug.Log("Enter AroundPatternState");
         }
 
         public override void OnExitState(SqBossBrain ownerEntity)
         {
-            brain.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
-            brain.MinusStamina();
+            _brain.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
+            _brain.MinusStamina();
 
             Debug.Log("Exit AroundPatternState");
         }
 
         private void ChangeState()
         {
-            brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
-            brain.MoveAroundPatternWarningZone.SetActive(false);
+            _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
+            _brain.MoveAroundPatternWarningZone.SetActive(false);
         }
 
         private IEnumerator EnterStateCorou()
         {
-            brain.MoveAroundPatternWarningZone.SetActive(true);
+            _brain.MoveAroundPatternWarningZone.SetActive(true);
 
             yield return new WaitForSeconds(0.7f);
-            brain.MoveAroundPatternWarningZone.SetActive(false);
-            brain.SqAgentAnimator.SetAroundPatternAttack(true);
+            _brain.MoveAroundPatternWarningZone.SetActive(false);
+            _brain.SqAgentAnimator.SetAroundPatternAttack(true);
         }
 
         public override void UpdateState(SqBossBrain ownerEntity)
