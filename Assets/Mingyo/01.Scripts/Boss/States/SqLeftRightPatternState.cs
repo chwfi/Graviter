@@ -6,13 +6,13 @@ namespace SqStates
 {
     public class SqLeftRightPatternState : CommonState<SqBossBrain>
     {
-        SqBossBrain brain;
+        SqBossBrain _brain;
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            brain = ownerEntity;
+            _brain = ownerEntity;
             ownerEntity.SqAgentAnimator.OnAnimationEndTrigger += ChangeState;
-            brain.StartCoroutine(EnterStateCorou());
+            _brain.StartCoroutine(EnterStateCorou());
 
             Debug.Log("Enter SqLeftRightPattern State");
         }
@@ -20,8 +20,8 @@ namespace SqStates
         public override void OnExitState(SqBossBrain ownerEntity)
         {
             ownerEntity.SqAgentAnimator.OnAnimationEndTrigger -= ChangeState;
-            
-            brain.MinusStamina();
+
+            _brain.MinusStamina();
             Debug.Log("Exit SqLeftRightPattern State");
         }
 
@@ -32,17 +32,17 @@ namespace SqStates
 
         private void ChangeState()
         {
-            brain.SqBrain.ChangeState(brain.SqBrain.GetState(SqState.Idle));
+            _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.Idle));
         }
 
         private IEnumerator EnterStateCorou()
         {
-            brain.LeftRightPatternWarningZone.SetActive(true);
+            _brain.LeftRightPatternWarningZone.SetActive(true);
 
             yield return new WaitForSeconds(0.7f);
 
-            brain.SqAgentAnimator.SetLeftRightPatternAttack(true);
-            brain.LeftRightPatternWarningZone.SetActive(false);
+            _brain.SqAgentAnimator.SetLeftRightPatternAttack(true);
+            _brain.LeftRightPatternWarningZone.SetActive(false);
         }
     }
 }
