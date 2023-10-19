@@ -13,6 +13,7 @@ public enum SqState
     AroundPattern,
     LeftRightPattern,
     ShootBoltPattern,
+    RushPattern,
 
 }
 
@@ -20,6 +21,7 @@ public struct AnimatorKeys
 {
     public const string IsAroundAttack = "IsAroundAttack";
     public const string IsLeftRightAttack = "IsLeftRightAttack";
+    public const string IsRushAttack = "IsRushAttack";
 }
 
 public class SqBossBrain : MonoBehaviour, IDamageable

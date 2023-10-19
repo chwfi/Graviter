@@ -27,7 +27,7 @@ namespace SqStates
         {
             yield return new WaitForSeconds(1.5f);
 
-            randomNum = Random.Range(1, 3);
+            randomNum = Random.Range(1, 4);
 
             switch (randomNum)
             {
@@ -37,10 +37,15 @@ namespace SqStates
                 case 2:
                     _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.LeftRightPattern));
                     break;
+                case 3:
+                    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.RushPattern));
+                    break;
                 default:
                     
                     break;
             }
+
+            Debug.Log(randomNum);
         }
 
         public override void OnExitState(SqBossBrain ownerEntity)
@@ -50,7 +55,25 @@ namespace SqStates
 
         public override void UpdateState(SqBossBrain ownerEntity)
         {
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.AroundPattern));
+            }
 
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.LeftRightPattern));
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.RushPattern));
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.ShootBoltPattern));
+            }
         }
     }
 }
