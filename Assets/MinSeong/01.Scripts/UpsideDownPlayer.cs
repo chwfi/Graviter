@@ -104,7 +104,8 @@ public class UpsideDownPlayer : MonoBehaviour, IAudioPlay
                 _rb.gravityScale *= -1;
             //transform.position = spawnpoint.transform.position;
             //Camera.transform.position = spawnpoint.transform.position;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _animator.SetBool("IsDie", true);
+            SceneController.instance.LoadScene(SceneManager.GetActiveScene().name);
         }
         if (collision.gameObject.CompareTag("Star"))
         {
