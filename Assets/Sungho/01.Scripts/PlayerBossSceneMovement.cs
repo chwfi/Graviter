@@ -1,10 +1,13 @@
 using DG.Tweening;
 using System.Collections;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
-public class PlayerMovement : MonoBehaviour, IAudioPlay
+public class PlayerBossSceneMovement : MonoBehaviour, IAudioPlay
 {
     private float horizontal;
     private bool isFacingRight = true;
@@ -23,11 +26,20 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
     [SerializeField] public float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
 
+    private Transform _followCam => transform.Find("PlayerFollowCam");
+
+    private float value = 0;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
+
+
+    }
+    private void Start()
+    {
+        Init();
     }
 
     void Update()
@@ -41,24 +53,47 @@ public class PlayerMovement : MonoBehaviour, IAudioPlay
 
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount > 0)
         {
-            Vector2 jumpvelo = new Vector2(horizontal * speed, _rb.velocity.y + jumpingPower);
-            _rb.velocity = jumpCount == 1 ? jumpvelo : jumpvelo * 0.5f;
-            jumpCount--;
-
-            //AudioPlay(_jumpClip);
+            ReverseGravity();
+            AudioPlay(_jumpClip);
         }
+
         Flip();
-
     }
-
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(horizontal * speed, _rb.velocity.y);
-
-        _rb.AddForce(new Vector2(-1, 0) * _rb.gravityScale);
-
+        _rb.velocity = value % 180 == 0 ?
+            new Vector2                                          //아래, 위일때
+            (horizontal * speed * (int)transform.right.x,        //x
+            _rb.velocity.y)                                      //y
+            :
+             new Vector2                                         // 왼, 오일때
+            (_rb.velocity.x,                                     //x
+            horizontal * speed * (int)transform.right.y);        //y
     }
+    private void Init()
+    {
+        StopImmediately();
+        Physics2D.gravity = new Vector2(0, -9.81f);
+    }
+    private void ReverseGravity()
+    {
+        StopImmediately();
 
+        value = (value + 90) % 360;
+        Debug.Log(value);
+
+        Vector2 rotate = value switch
+        {
+            0 => new Vector2(0, -9.81f), //아래
+            90 => new Vector2(9.81f, 0), //오른쪽
+            180 => new Vector2(0, 9.81f), //위
+            270 => new Vector2(-9.81f, 0), //왼쪽
+            _ => new Vector2(0, -9.81f)
+        };
+        Physics2D.gravity = rotate;
+        transform.DORotate(new Vector3(0, 0, value), .7f);
+        //_followCam.DORotate(new Vector3(0, 0, value), .7f);
+    }
     private bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1f, _groundLayer);

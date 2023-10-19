@@ -20,7 +20,7 @@ public class BossEnemyBrain : MonoBehaviour
     public AnimatorContoller Anim => _anim;
     public AttackController AttackController => _attackController;
 
-
+    public GameObject BlackholeObj => transform.Find("Blackhole").gameObject;
 
     public float Speed => _speed;
 
