@@ -7,7 +7,7 @@ namespace EnemyState
 {
     public class IdleState : CommonState<BossEnemyBrain>
     {
-        private float waitTimeToNextState = 8;
+        private float waitTimeToNextState = 6.5f;
         private float timer = 0;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {

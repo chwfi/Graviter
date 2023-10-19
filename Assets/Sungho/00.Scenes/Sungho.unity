@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01009fed374a87f49b98c467641df455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SWIRLSTRENGTH: 5
+  SWIRLSTRENGTH: 1
 --- !u!58 &532524140
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,6 @@ GameObject:
   m_Component:
   - component: {fileID: 554107615}
   - component: {fileID: 554107616}
-  - component: {fileID: 554107617}
   m_Layer: 5
   m_Name: TimeSlider
   m_TagString: Untagged
@@ -1650,22 +1649,6 @@ MonoBehaviour:
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &554107617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554107614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea83ddf41bc523b4da36c1436fa390d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setTime: 30
-  OnComplated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &563984630
@@ -17424,7 +17407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackAction:
   - attackAction: {fileID: 11400000, guid: e54fc0e6630efd442bcdfaa8028b67cb, type: 2}
-    weight: 1
+    weight: 0.526
   - attackAction: {fileID: 11400000, guid: 8ed37372e147b8a48a014cfe2076ef17, type: 2}
     weight: 1
   PlayerObject: {fileID: 7970212293820653227}
@@ -29570,7 +29553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801221301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.102459, y: -3.63199, z: -10}
+  m_LocalPosition: {x: -15.520265, y: -3.60427, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29840,6 +29823,55 @@ Transform:
   m_Father: {fileID: 427842137}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1899274250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899274251}
+  - component: {fileID: 1899274252}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1899274251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899274250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1580439, y: 1.7059779, z: -0.049328543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899274252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899274250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea83ddf41bc523b4da36c1436fa390d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 554107616}
+  setTime: 60
+  OnComplated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2015637796
 GameObject:
   m_ObjectHideFlags: 0
@@ -31007,7 +31039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4334933001306540863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.02, y: -6.33, z: -10}
+  m_LocalPosition: {x: -27.4, y: -6.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31200,33 +31232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4319988416818440137
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4319988416818440140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
 --- !u!114 &4319988416818440138
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -31240,7 +31245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 5, y: 0, z: -10}
+  m_FollowOffset: {x: 3, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -31274,7 +31279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4319988416818440139}
   - component: {fileID: 4319988416818440136}
-  - component: {fileID: 4319988416818440137}
   - component: {fileID: 4319988416818440138}
   m_Layer: 9
   m_Name: cm
@@ -31291,7 +31295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4319988417678550843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -10}
+  m_LocalPosition: {x: 3, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31350,7 +31354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BoundingShape2D: {fileID: 4334933001306540864}
-  m_Damping: 0.5
+  m_Damping: 1.5
   m_MaxWindowSize: -1
 --- !u!1 &4319988417678550843
 GameObject:
@@ -31412,11 +31416,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -3.3980541, y: 19.534843}
-      - {x: -3.7312822, y: -3.809837}
-      - {x: 18.050028, y: -3.7951865}
-      - {x: 40.334724, y: -3.5892441}
-      - {x: 40.18314, y: 19.667633}
+    - - {x: -3.8024864, y: 19.74064}
+      - {x: -3.8030882, y: -3.8146226}
+      - {x: 56.888767, y: -3.658708}
+      - {x: 57.081802, y: 19.818344}
 --- !u!114 &4433357158357197670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31468,19 +31471,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7970212293820653216}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 554107617}
+      - m_Target: {fileID: 1899274252}
         m_TargetAssemblyTypeName: TimeSliderController, Assembly-CSharp
         m_MethodName: SetTimerStop
         m_Mode: 1
@@ -31490,7 +31481,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &7970212293820653216
 MonoBehaviour:
@@ -31625,7 +31616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7970212293820653227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.02, y: -6.33, z: 0}
+  m_LocalPosition: {x: -18.5, y: -6.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
