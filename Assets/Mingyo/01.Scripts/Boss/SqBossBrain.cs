@@ -6,6 +6,7 @@ using SqStates;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public enum SqState
 {
@@ -42,6 +43,8 @@ public class SqBossBrain : MonoBehaviour, IDamageable
     public Slider StaminaBar;
     public GameObject LeftRightPatternWarningZone;
     public GameObject MoveAroundPatternWarningZone;
+    [SerializeField]
+    private TextMeshPro hudText;
 
     public Bolt BoltPrefab;
 
@@ -77,10 +80,22 @@ public class SqBossBrain : MonoBehaviour, IDamageable
         SqBrain.UpdateState();
     }
 
-    public void OnDamage()
+    public void OnDamage(Vector2 normal)
     {
         float endValue = Hp - 10f;
         DOTween.To(() => Hp, x => Hp = x, endValue, 0.7f).OnUpdate(() => hpBar.value = Hp);
+
+        hudText.transform.localPosition = normal;   
+        hudText.color = Color.white;
+
+        Vector2 endVecValue = normal + new Vector2(normal.x, -2f);
+
+        hudText.rectTransform.DOLocalMoveY(endVecValue.y, 0.5f).OnComplete(() =>
+        {
+            DOTween.To(() => hudText.color, r => hudText.color = r, new Color(0,0,0,0), 0.5f); 
+        });
+
+
         if (Hp <= 0) { OnDie?.Invoke(); }
     }
 

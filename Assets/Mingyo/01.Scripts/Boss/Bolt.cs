@@ -35,7 +35,7 @@ public class Bolt : MonoBehaviour
             if(collision.transform.root.TryGetComponent(out IDamageable hit))
             {
                 Debug.Log($"Hit{collision.name}");
-                hit.OnDamage();
+                hit.OnDamage(transform.position);
                 Instantiate(hitEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
