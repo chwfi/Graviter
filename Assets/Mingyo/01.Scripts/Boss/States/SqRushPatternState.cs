@@ -12,7 +12,6 @@ namespace SqStates
 
         public override void OnEnterState(SqBossBrain ownerEntity)
         {
-            Debug.Log("아니시발왜또들어와");
             _brain = ownerEntity;
             ownerEntity.SqAgentAnimator.OnAnimationEndTrigger += ChangeState;
             _brain.SqAgentAnimator.SetRushPatternAttack(true);
