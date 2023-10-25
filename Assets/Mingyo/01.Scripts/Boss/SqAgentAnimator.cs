@@ -18,6 +18,12 @@ public class SqAgentAnimator : MonoBehaviour
     public event Action OnAnimationEventTrigger = null; //애니메이션 내의 이벤트 트리거
     public event Action OnAnimationEndTrigger = null; //애니메이션이 종료될때
 
+    public void SetRushPatternAttack(bool value)
+    {
+        if (value) { _animator.SetTrigger(AnimatorKeys.IsRushAttack); }
+        else { _animator.ResetTrigger(AnimatorKeys.IsRushAttack); }
+    }
+
     public void SetAroundPatternAttack(bool value)
     {
         if (value) { _animator.SetTrigger(AnimatorKeys.IsAroundAttack); }
