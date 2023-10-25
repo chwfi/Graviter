@@ -7,11 +7,12 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
 
+    [SerializeField] GameObject image;
     [SerializeField] Animator animator;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -22,6 +23,12 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            LoadScene(GameObject.Find("End")?.GetComponent<NextSceneFlag>().sceneName);
+    }
+
     public void LoadScene(string name)
     {
         StartCoroutine(Loading(name));
@@ -29,9 +36,12 @@ public class SceneController : MonoBehaviour
 
     IEnumerator Loading(string name)
     {
+        image.SetActive(true);
         animator.SetTrigger("scene_start");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(name);
+            SceneManager.LoadScene(name);
         animator.SetTrigger("scene_end");
+        yield return new WaitForSeconds(1);
+        image.SetActive(false);
     }
 }

@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 
 namespace EnemyState

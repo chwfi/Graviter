@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class UpsideDownPlayer : MonoBehaviour, IAudioPlay
@@ -20,6 +21,8 @@ public class UpsideDownPlayer : MonoBehaviour, IAudioPlay
 
     [SerializeField] private AudioClip _jumpClip;
     [SerializeField] private LayerMask _groundLayer;
+
+    public UnityEvent OnDie;
 
     [Header("Value")]
     [SerializeField] public float speed = 8f;
@@ -105,19 +108,8 @@ public class UpsideDownPlayer : MonoBehaviour, IAudioPlay
             //transform.position = spawnpoint.transform.position;
             //Camera.transform.position = spawnpoint.transform.position;
             _animator.SetBool("IsDie", true);
+            OnDie.Invoke();
             SceneController.instance.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        if (collision.gameObject.CompareTag("Star"))
-        {
-            Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("스테이지 클리어");
-            //스테이지 클리어
-        }
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            collision.gameObject.SetActive(false);
-            _rb.gravityScale *= -1;
         }
     }
 }

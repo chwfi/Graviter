@@ -15,4 +15,4 @@ MonoBehaviour:
   IsComplete: 0
   _description: "\uB610\uC624\uC624\uC624\uC624\uC639"
   FollowTime: 5
-  MoveSpeed: 4
+  MoveSpeed: 3
