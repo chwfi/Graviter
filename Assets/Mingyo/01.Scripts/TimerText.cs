@@ -11,21 +11,28 @@ public class TimerText : MonoBehaviour
 
     float curTime;
     public static float EndTime;
+    bool isFirst = true;
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "Clear")
+        
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Stage 1" && isFirst)
+        {
+            isFirst = false;
+            curTime = 0;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Clear" && _timerText.gameObject.activeInHierarchy)
         {
             _timerText.gameObject.SetActive(false);
             EndTime = curTime;
         }
 
-        DontDestroyOnLoad(gameObject);
-
-    }
-
-    private void Update()
-    {
         curTime = Time.time;
 
         _timerText.SetText($"Time: {Mathf.Floor(curTime * 10f) / 10f }");
