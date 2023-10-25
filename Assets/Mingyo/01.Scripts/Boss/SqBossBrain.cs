@@ -88,7 +88,7 @@ public class SqBossBrain : MonoBehaviour, IDamageable
         hudText.transform.localPosition = normal;   
         hudText.color = Color.white;
 
-        Vector2 endVecValue = normal + new Vector2(normal.x, -2f);
+        Vector2 endVecValue = normal + new Vector2(normal.x, -5f);
 
         hudText.rectTransform.DOLocalMoveY(endVecValue.y, 0.5f).OnComplete(() =>
         {
