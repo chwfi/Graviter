@@ -21,7 +21,6 @@ public class PlayerHp : MonoBehaviour
         switch (collision.tag)
         {
             case "SqBoss":
-            case "BlackholeBoss":
             case "Obstacle":
                 OnDie?.Invoke();
                 break;
