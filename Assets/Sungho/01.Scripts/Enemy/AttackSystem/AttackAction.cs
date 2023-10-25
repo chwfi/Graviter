@@ -14,8 +14,6 @@ public enum AttackActionState
 
 public abstract class AttackAction : ScriptableObject
 {
-    private float timer = 0;
-
     private AttackActionState _attackState;
     public AttackActionState AttackState
     {
@@ -25,31 +23,23 @@ public abstract class AttackAction : ScriptableObject
             _attackState = value;
         }
     }
-    public bool IsComplete => _attackState == AttackActionState.Complete;
+    protected AttackController attackController;
+    [HideInInspector]
+    public bool IsComplete = false;
 
-    public AttackActionState Start()
+    public void SetUpAttackController(AttackController brain)
     {
-        AttackState = AttackActionState.Starting;
-        return AttackState;
+        attackController = brain;
     }
-    public AttackActionState Update()
+    public virtual void Start()
     {
-        AttackState = AttackActionState.Running;
-        return AttackState;
+        IsComplete = false;
     }
-    public abstract void Attack(); //무조건적으로 Complete을 마지막에 실행시켜줘야 끝남
-    protected void AddTask(float waitTime = 0, Action action = null)
-    {
-
-    }
+    public abstract void Update();
+    public abstract void Exit();
     protected void Complete()
     {
-        _attackState = AttackActionState.Complete;
+        IsComplete = true;
     }
 
-    public AttackActionState Exit()
-    {
-        AttackState = AttackActionState.Exit;
-        return AttackState;
-    }
 }

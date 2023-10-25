@@ -4,46 +4,36 @@ using UnityEngine;
 
 namespace EnemyState
 {
-
-    public class ChaseState : CommonState<BossEnemyBrain>
+    public class IdleState : CommonState<BossEnemyBrain>
     {
+        private float waitTimeToNextState = 6.5f;
+        private float timer = 0;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            Debug.Log("잘 출력이 되네요 하하");
+            ownerEntity.transform.DOMove(Vector2.zero, 1);
+            ownerEntity.BlackholeObj.transform.DOScale(Vector2.one, 1);
+
+            timer = 0;
+            waitTimeToNextState += Random.Range(-3, 3);
         }
 
         public override void OnExitState(BossEnemyBrain ownerEntity)
         {
-            Debug.Log("난 아이들인데요 제가 한번 나가볼게요");
+
         }
 
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
-            }
-        }
-    }
-    public class WalkState : CommonState<BossEnemyBrain>
-    {
-        public override void OnEnterState(BossEnemyBrain ownerEntity)
-        {
-            Debug.Log("안녕하세요 저는 워크스테이트라고 합니다. 저는 상태가 체인지 되었어요.");
-        }
-
-        public override void OnExitState(BossEnemyBrain ownerEntity)
-        {
-            Debug.Log("난 워크인데요 제가 한번 나가볼게요");
-        }
-
-        public override void UpdateState(BossEnemyBrain ownerEntity)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
+            /*if (Input.GetKeyDown(KeyCode.R))
             {
                 Debug.Log("상태를 이전생태로 돌려볼게요");
                 ownerEntity.Brain.RevertBeforeState();
-            }
+            }*/
+            Debug.Log("아이들상태");
+
+            timer += Time.deltaTime;
+            if (timer >= waitTimeToNextState)
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Attack));
         }
     }
     public class AttackState : CommonState<BossEnemyBrain>
@@ -51,7 +41,9 @@ namespace EnemyState
         private AttackAction atcAction;
         public override void OnEnterState(BossEnemyBrain ownerEntity)
         {
-            atcAction = ownerEntity.AttackPattern.GetRandomAttackAction(); //가중치로 가져옴
+            atcAction = ownerEntity.AttackController.GetRandomAttackAction(); //가중치로 가져옴
+
+            atcAction.SetUpAttackController(ownerEntity.AttackController);
             atcAction.Start();
         }
 
@@ -63,10 +55,9 @@ namespace EnemyState
         public override void UpdateState(BossEnemyBrain ownerEntity)
         {
             atcAction.Update();
-
             if (atcAction.IsComplete)
             {
-                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Walk));
+                ownerEntity.Brain.ChangeState(ownerEntity.Brain.GetState(State.Idle));
             }
         }
     }

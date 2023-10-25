@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private readonly string _playerTagName = "Player";
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.tag != _playerTagName) return;
+        if (collision.gameObject.TryGetComponent<StageReStart>(out var component))
+        {
+            component?.ReStartScene();
+        }
     }
 }

@@ -17,9 +17,12 @@ public class PlayerHp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.tag);
         switch (collision.tag)
         {
             case "SqBoss":
+            case "BlackholeBoss":
+            case "Obstacle":
                 OnDie?.Invoke();
                 break;
             case "SqBolt":

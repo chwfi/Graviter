@@ -4,7 +4,7 @@ using EnemyState;
 public enum State
 {
     Idle,
-    Walk,
+    Attack,
 }
 
 public class BossEnemyBrain : MonoBehaviour
@@ -16,21 +16,25 @@ public class BossEnemyBrain : MonoBehaviour
     private float _speed = 3;
 
     private AnimatorContoller _anim;
-    private AttackPattern _attackPattern;
+    private AttackController _attackController;
     public AnimatorContoller Anim => _anim;
-    public AttackPattern AttackPattern => _attackPattern;
+    public AttackController AttackController => _attackController;
+
+    public GameObject BlackholeObj => transform.Find("Blackhole").gameObject;
 
     public float Speed => _speed;
 
     private void Awake()
     {
-        _anim = transform.Find("Sprite").GetComponent<AnimatorContoller>();
-        _attackPattern = GetComponent<AttackPattern>();
+        _anim = GetComponent<AnimatorContoller>();
+        _attackController = GetComponent<AttackController>();
     }
     public void Start()
     {
         foreach (Enum item in Enum.GetValues(typeof(State)))
         {
+            Debug.Log($"EnemyState.{item}State");
+
             var type = Type.GetType($"EnemyState.{item}State");
             var instance = Activator.CreateInstance(type) as CommonState<BossEnemyBrain>;
             Brain.StateType.Add(item, instance);

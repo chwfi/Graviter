@@ -12,7 +12,8 @@ TagManager:
   - SqBoss
   - Spawnpoint
   - Obstacle
-  - SqBolt
+  - sqBolt
+  - BlackholeBoss
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Player
   - Bullet
   - ETC
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -50,6 +51,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
+  - name: Object
     uniqueID: 39193049
+    locked: 0
+  - name: Backhole
+    uniqueID: 1010399799
+    locked: 0
+  - name: Player
+    uniqueID: 255039721
     locked: 0
