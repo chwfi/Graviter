@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b8709ddb83fa34bbae2b0c27e36d2c, type: 3}
   m_Name: AttackAction_Follow
   m_EditorClassIdentifier: 
-  IsComplete: 0
+  IsComplete: 1
   _description: "\uB610\uC624\uC624\uC624\uC624\uC639"
   FollowTime: 5
-  MoveSpeed: 3
+  MoveSpeed: 7

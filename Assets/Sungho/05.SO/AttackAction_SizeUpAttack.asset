@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2d19cbbb537574cb3ee669150a6688, type: 3}
   m_Name: AttackAction_SizeUpAttack
   m_EditorClassIdentifier: 
-  IsComplete: 1
+  IsComplete: 0
   ActionPlayTime: 7
-  MaxSize: 5
+  MaxSize: 10
