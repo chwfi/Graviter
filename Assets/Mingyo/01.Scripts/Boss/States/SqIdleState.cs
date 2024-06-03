@@ -55,25 +55,25 @@ namespace SqStates
 
         public override void UpdateState(SqBossBrain ownerEntity)
         {
-            if(Input.GetKeyDown(KeyCode.H))
-            {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.AroundPattern));
-            }
+            //if(Input.GetKeyDown(KeyCode.H))
+            //{
+            //    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.AroundPattern));
+            //}
 
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.LeftRightPattern));
-            }
+            //if (Input.GetKeyDown(KeyCode.J))
+            //{
+            //    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.LeftRightPattern));
+            //}
 
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.RushPattern));
-            }
+            //if (Input.GetKeyDown(KeyCode.K))
+            //{
+            //    _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.RushPattern));
+            //}
 
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.ShootBoltPattern));
-            }
+            //if (Input.GetKeyDown(KeyCode.L))
+            //{
+            //   _brain.SqBrain.ChangeState(_brain.SqBrain.GetState(SqState.ShootBoltPattern));
+            //}
         }
     }
 }
